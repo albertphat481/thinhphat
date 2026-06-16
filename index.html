@@ -78,7 +78,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <img src="images/hero.png" alt="Máy nén khí công nghiệp Thịnh Phát" class="hero-bg">
+        <img src="images/hero_new.png" alt="Máy nén khí công nghiệp Thịnh Phát" class="hero-bg">
         <div class="hero-gradient"></div>
         <div class="hero-particles"></div>
         <div class="container" style="position: relative; z-index: 10;">
@@ -103,7 +103,7 @@
         <div class="stats animate">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-number" data-target="26">0</div>
                     <div class="stat-label">Năm Kinh Nghiệm</div>
                 </div>
                 <div class="stat-item">
@@ -129,8 +129,10 @@
         </div>
         <div class="marquee-wrapper">
             <div class="brands-track">
-                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>PUMA</span><span>PEGASUS</span><span>FUSHENG</span><span>INGERSOLL RAND</span><span>ATLAS COPCO</span><span>KAISHAN</span>
-                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>PUMA</span><span>PEGASUS</span><span>FUSHENG</span><span>INGERSOLL RAND</span><span>ATLAS COPCO</span><span>KAISHAN</span>
+                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>MITSUI SEIKI</span>
+                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>MITSUI SEIKI</span>
+                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>MITSUI SEIKI</span>
+                <span>HITACHI</span><span>KOBELCO</span><span>AIRMAN</span><span>IWATA</span><span>MITSUI SEIKI</span>
             </div>
         </div>
     </div>
@@ -151,8 +153,8 @@
                 <div class="about-content animate-right">
                     <div class="section-label"><i class="fa-solid fa-building"></i> VỀ CHÚNG TÔI</div>
                     <h2>Công Ty TNHH<br>Thịnh Phát</h2>
-                    <p>Tọa lạc tại trung tâm công nghiệp Bình Dương (An Phú, Thuận An), <strong>Công Ty TNHH Thịnh Phát</strong> tự hào là đơn vị hàng đầu trong lĩnh vực phân phối, lắp đặt và bảo trì hệ thống máy nén khí công nghiệp.</p>
-                    <p>Chúng tôi chuyên cung cấp các dòng máy nén khí nội địa Nhật Bản chất lượng cao (cả cũ và mới) từ các thương hiệu nổi tiếng: Hitachi, Kobelco, Airman, Iwata... đáp ứng mọi quy mô sản xuất.</p>
+                    <p>Khai trương từ năm 2000 và tọa lạc tại trung tâm công nghiệp Bình Dương (An Phú, Thuận An), <strong>Công Ty TNHH Thịnh Phát</strong> tự hào là một trong những đơn vị uy tín nhất trong lĩnh vực phân phối, lắp đặt và bảo trì hệ thống máy nén khí công nghiệp.</p>
+                    <p>Chúng tôi chuyên cung cấp các dòng máy nén khí nội địa Nhật Bản chất lượng cao (cả cũ và mới) từ các thương hiệu nổi tiếng: Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki... đáp ứng mọi quy mô sản xuất.</p>
 
                     <div class="about-highlights">
                         <div class="highlight-item">
@@ -208,19 +210,26 @@
             </div>
 
             <div class="products-grid" id="productContainer">
-                <!-- Product 1 -->
-                <div class="product-card animate" data-category="piston moi">
-                    <div class="product-img-wrap">
-                        <span class="product-badge new">Mới 100%</span>
-                        <img src="images/piston.png" alt="Máy Nén Khí Piston Hitachi 10HP" class="product-img">
+                <!-- Product 1: Airman SMS22E-B -->
+                <div class="product-card animate" data-category="trucvit cu">
+                    <div class="product-gallery">
+                        <span class="product-badge">Nội Địa Cũ</span>
+                        <div class="gallery-main">
+                            <img src="images/airman-sms22e-front.jpg" alt="Airman SMS22E-B Mặt Trước" class="active">
+                            <img src="images/airman-sms22e-inside.jpg" alt="Airman SMS22E-B Bên Trong">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/airman-sms22e-front.jpg" class="thumb active" onclick="switchImg(this)">
+                            <img src="images/airman-sms22e-inside.jpg" class="thumb" onclick="switchImg(this)">
+                        </div>
                     </div>
                     <div class="product-content">
-                        <div class="product-brand">Hitachi</div>
-                        <h3 class="product-title">Máy Nén Khí Piston 10HP (7.5kW)</h3>
+                        <div class="product-brand">Airman</div>
+                        <h3 class="product-title">Máy Nén Trục Vít SMS22E-B 30HP</h3>
                         <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Điện áp: 380V / 3 Pha</li>
-                            <li><i class="fa-solid fa-gauge-high"></i> Áp suất: 8 - 10 Bar</li>
-                            <li><i class="fa-solid fa-database"></i> Bình chứa: 300 Lít</li>
+                            <li><i class="fa-solid fa-bolt"></i> Biến tần (Inverter Installed)</li>
+                            <li><i class="fa-solid fa-cloud-sun"></i> ProAir Outdoor</li>
+                            <li><i class="fa-solid fa-star"></i> Tình trạng: Hoạt động hoàn hảo</li>
                         </ul>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
@@ -229,18 +238,67 @@
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Product 2: Mitsui Seiki Z37 -->
                 <div class="product-card animate" data-category="trucvit cu">
-                    <div class="product-img-wrap">
-                        <span class="product-badge hot">Hot</span>
-                        <img src="images/screw.png" alt="Máy Nén Khí Trục Vít Kobelco 30HP" class="product-img">
+                    <div class="product-gallery">
+                        <span class="product-badge hot">Bán Chạy</span>
+                        <div class="gallery-main">
+                            <img src="images/mitsui-z37-front.png" alt="Mitsui Seiki Z37 Mặt Trước" class="active">
+                            <img src="images/mitsui-z37-side.jpg" alt="Mitsui Seiki Z37 Góc Nghiêng">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/mitsui-z37-front.png" class="thumb active" onclick="switchImg(this)">
+                            <img src="images/mitsui-z37-side.jpg" class="thumb" onclick="switchImg(this)">
+                        </div>
                     </div>
                     <div class="product-content">
-                        <div class="product-brand">Kobelco</div>
-                        <h3 class="product-title">Máy Nén Khí Trục Vít 30HP (22kW)</h3>
+                        <div class="product-brand">Mitsui Seiki</div>
+                        <h3 class="product-title">Máy Nén Trục Vít ZgaiardX Z37 50HP</h3>
                         <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Inverter Tiết Kiệm Điện</li>
+                            <li><i class="fa-solid fa-bolt"></i> Inverter Premium IE3</li>
                             <li><i class="fa-solid fa-gauge-high"></i> Áp suất: 7 - 8.5 Bar</li>
+                            <li><i class="fa-solid fa-wrench"></i> Siêu tiết kiệm điện năng</li>
+                        </ul>
+                        <div class="product-footer">
+                            <span class="product-price">Liên hệ</span>
+                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Mitsui Seiki ZV37 -->
+                <div class="product-card animate" data-category="trucvit cu">
+                    <div class="product-img-wrap">
+                        <span class="product-badge">Nội Địa Cũ</span>
+                        <img src="images/mitsui-zv37.jpg" alt="Mitsui Seiki ZV37" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">Mitsui Seiki</div>
+                        <h3 class="product-title">Máy Nén Trục Vít ZV37 50HP</h3>
+                        <ul class="product-features">
+                            <li><i class="fa-solid fa-bolt"></i> Biến tần i-14000 series</li>
+                            <li><i class="fa-solid fa-volume-xmark"></i> Độ ồn cực thấp</li>
+                            <li><i class="fa-solid fa-shield-halved"></i> Bảo hành 12 tháng</li>
+                        </ul>
+                        <div class="product-footer">
+                            <span class="product-price">Liên hệ</span>
+                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Mitsui Seiki 100HP -->
+                <div class="product-card animate" data-category="trucvit cu">
+                    <div class="product-img-wrap">
+                        <span class="product-badge">Nội Địa Cũ</span>
+                        <img src="images/mitsui-seiki-large.jpg" alt="Mitsui Seiki 100HP" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-brand">Mitsui Seiki</div>
+                        <h3 class="product-title">Máy Nén Trục Vít 100HP (75kW)</h3>
+                        <ul class="product-features">
+                            <li><i class="fa-solid fa-industry"></i> Công suất công nghiệp lớn</li>
+                            <li><i class="fa-solid fa-temperature-low"></i> Tản nhiệt cực tốt</li>
                             <li><i class="fa-solid fa-star"></i> Tình trạng: Đẹp 95%</li>
                         </ul>
                         <div class="product-footer">
@@ -250,61 +308,19 @@
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card animate" data-category="trucvit moi">
-                    <div class="product-img-wrap">
-                        <span class="product-badge new">Mới 100%</span>
-                        <img src="images/screw.png" alt="Máy Nén Trục Vít Biến Tần Pegasus 50HP" class="product-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-brand">Pegasus</div>
-                        <h3 class="product-title">Máy Nén Trục Vít Biến Tần 50HP (37kW)</h3>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Điện áp: 380V / 3 Pha</li>
-                            <li><i class="fa-solid fa-droplet-slash"></i> Tích hợp sấy khí</li>
-                            <li><i class="fa-solid fa-shield-halved"></i> Bảo hành 24 tháng</li>
-                        </ul>
-                        <div class="product-footer">
-                            <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card animate" data-category="piston cu">
-                    <div class="product-img-wrap">
-                        <span class="product-badge">Nội Địa Cũ</span>
-                        <img src="images/piston.png" alt="Máy Nén Khí Piston Iwata 5HP" class="product-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-brand">Iwata</div>
-                        <h3 class="product-title">Máy Nén Khí Piston 5HP (3.7kW)</h3>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Điện áp: 220V / 380V</li>
-                            <li><i class="fa-solid fa-gauge-high"></i> Áp suất: Tối đa 10 Bar</li>
-                            <li><i class="fa-solid fa-wrench"></i> Máy Zin, Vận hành êm</li>
-                        </ul>
-                        <div class="product-footer">
-                            <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
+                <!-- Product 5: Kobelco -->
                 <div class="product-card animate" data-category="trucvit cu">
                     <div class="product-img-wrap">
                         <span class="product-badge">Nội Địa Cũ</span>
-                        <img src="images/screw.png" alt="Máy Nén Khí Trục Vít Airman 75HP" class="product-img">
+                        <img src="images/Kobelco-handsome.jpg" alt="Máy Nén Khí Kobelco" class="product-img">
                     </div>
                     <div class="product-content">
-                        <div class="product-brand">Airman</div>
-                        <h3 class="product-title">Máy Nén Khí Trục Vít 75HP (55kW)</h3>
+                        <div class="product-brand">Kobelco</div>
+                        <h3 class="product-title">Máy Nén Khí Trục Vít Kobelco</h3>
                         <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Điện áp: 380V / 3 Pha</li>
-                            <li><i class="fa-solid fa-industry"></i> Công nghiệp nặng</li>
-                            <li><i class="fa-solid fa-star"></i> Hiệu suất cực cao</li>
+                            <li><i class="fa-solid fa-bolt"></i> Vận hành ổn định</li>
+                            <li><i class="fa-solid fa-gauge-high"></i> Áp suất ổn định</li>
+                            <li><i class="fa-solid fa-star"></i> Nguyên bản nội địa</li>
                         </ul>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
@@ -313,90 +329,34 @@
                     </div>
                 </div>
 
-                <!-- Product 6 -->
-                <div class="product-card animate" data-category="piston moi">
-                    <div class="product-img-wrap">
-                        <span class="product-badge new">Mới 100%</span>
-                        <img src="images/piston.png" alt="Máy Nén Khí Piston Puma 20HP" class="product-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-brand">Puma</div>
-                        <h3 class="product-title">Máy Nén Khí Piston 20HP (15kW)</h3>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Đầu nổ siêu bền</li>
-                            <li><i class="fa-solid fa-gauge-high"></i> Áp suất: 12 Bar</li>
-                            <li><i class="fa-solid fa-database"></i> Bình chứa: 500 Lít</li>
-                        </ul>
-                        <div class="product-footer">
-                            <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-card animate" data-category="trucvit cu">
-                    <div class="product-img-wrap">
-                        <span class="product-badge">Nội Địa Cũ</span>
-                        <img src="images/screw.png" alt="Máy Nén Trục Vít Hitachi 100HP" class="product-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-brand">Hitachi</div>
-                        <h3 class="product-title">Máy Nén Trục Vít 100HP (75kW)</h3>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Inverter biến tần</li>
-                            <li><i class="fa-solid fa-temperature-low"></i> Hệ thống làm mát dầu</li>
-                            <li><i class="fa-solid fa-star"></i> Tình trạng: Đẹp 90%</li>
-                        </ul>
-                        <div class="product-footer">
-                            <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-card animate" data-category="trucvit moi">
-                    <div class="product-img-wrap">
-                        <span class="product-badge new">Mới 100%</span>
-                        <img src="images/screw.png" alt="Máy Nén Khí Fusheng 15HP" class="product-img">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-brand">Fusheng</div>
-                        <h3 class="product-title">Máy Nén Trục Vít 15HP (11kW)</h3>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-bolt"></i> Điện áp: 380V / 3 Pha</li>
-                            <li><i class="fa-solid fa-volume-xmark"></i> Siêu êm, ít rung</li>
-                            <li><i class="fa-solid fa-shield-halved"></i> Bảo hành 18 tháng</li>
-                        </ul>
-                        <div class="product-footer">
-                            <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 9 - Phụ tùng -->
+                <!-- Product 6: Phụ tùng -->
                 <div class="product-card animate" data-category="phutung">
-                    <div class="product-img-wrap">
+                    <div class="product-gallery">
                         <span class="product-badge hot">Phụ tùng</span>
-                        <img src="images/parts.png" alt="Phụ tùng máy nén khí" class="product-img">
+                        <div class="gallery-main">
+                            <img src="images/parts2.png" alt="Phụ tùng 1" class="active">
+                            <img src="images/parts3.png" alt="Phụ tùng 2">
+                            <img src="images/parts4.png" alt="Phụ tùng 3">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="images/parts2.png" class="thumb active" onclick="switchImg(this)">
+                            <img src="images/parts3.png" class="thumb" onclick="switchImg(this)">
+                            <img src="images/parts4.png" class="thumb" onclick="switchImg(this)">
+                        </div>
                     </div>
                     <div class="product-content">
-                        <div class="product-brand">Đa thương hiệu</div>
-                        <h3 class="product-title">Phụ Tùng & Linh Kiện Máy Nén Khí</h3>
+                        <div class="product-brand">Linh kiện Nhật</div>
+                        <h3 class="product-title">Phụ Tùng & Linh Kiện Chính Hãng</h3>
                         <ul class="product-features">
-                            <li><i class="fa-solid fa-filter"></i> Lọc dầu, lọc gió, lọc tách dầu</li>
-                            <li><i class="fa-solid fa-oil-can"></i> Dầu nhớt chuyên dụng</li>
-                            <li><i class="fa-solid fa-gears"></i> Van, rơ le, dây curoa</li>
+                            <li><i class="fa-solid fa-filter"></i> Lọc gió, lọc tách dầu chuyên dụng</li>
+                            <li><i class="fa-solid fa-oil-can"></i> Dầu nhớt chất lượng cao</li>
+                            <li><i class="fa-solid fa-gears"></i> Sẵn kho số lượng lớn</li>
                         </ul>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
                             <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-                        </div>
-                    </div>
-                </div>
             </div>
+
 
             <div class="text-center" style="margin-top: 3rem;">
                 <a href="#contact" class="btn btn-primary btn-lg">Yêu Cầu Báo Giá Tất Cả Dòng Máy <i class="fa-solid fa-arrow-right"></i></a>
@@ -1021,6 +981,21 @@
                     btn.disabled = false;
                 }, 1000);
             }, 1500);
+        }
+
+        // ===== Switch Image Function =====
+        function switchImg(thumb) {
+            const gallery = thumb.closest('.product-gallery');
+            const thumbs = gallery.querySelectorAll('.thumb');
+            const mainImgs = gallery.querySelectorAll('.gallery-main img');
+            
+            const index = Array.from(thumbs).indexOf(thumb);
+            
+            thumbs.forEach(t => t.classList.remove('active'));
+            mainImgs.forEach(m => m.classList.remove('active'));
+            
+            thumb.classList.add('active');
+            mainImgs[index].classList.add('active');
         }
 
         // ===== Smooth reveal on page load =====

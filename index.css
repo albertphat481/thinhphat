@@ -1220,6 +1220,7 @@ body.dark-theme .service-card { background: var(--surface); border-color: var(--
 body.dark-theme .why-card { background: rgba(255,255,255,0.03); }
 body.dark-theme .product-card { background: var(--surface); border-color: var(--border); }
 body.dark-theme .contact-section { background: var(--bg-color); }
+body.dark-theme .contact-grid { background: var(--surface); }
 body.dark-theme .contact-info-card { background: var(--surface); border-color: var(--border); }
 body.dark-theme .form-control { background: var(--bg-color); border-color: var(--border); color: var(--text-main); }
 body.dark-theme .form-control:focus { background: var(--surface); }

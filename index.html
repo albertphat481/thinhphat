@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=1.1">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
     <header class="header" id="header">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-wind"></i></div>
+                <img src="images/logo.png" alt="Thịnh Phát Logo" class="logo-img">
                 <div>
                     <div class="logo-text">THỊNH PHÁT</div>
                     <div class="logo-sub">Máy Nén Khí Công Nghiệp</div>
@@ -55,13 +55,13 @@
             </a>
 
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
-                <li><a href="#about" class="nav-link">Về chúng tôi</a></li>
-                <li><a href="#products" class="nav-link">Sản phẩm</a></li>
-                <li><a href="#services" class="nav-link">Dịch vụ</a></li>
-                <li><a href="#gallery" class="nav-link">Hình ảnh</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                <li><a href="#home" class="nav-link active" data-i18n="nav-home">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav-about">Về chúng tôi</a></li>
+                <li><a href="#products" class="nav-link" data-i18n="nav-products">Sản phẩm</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav-services">Dịch vụ</a></li>
+                <li><a href="#gallery" class="nav-link" data-i18n="nav-gallery">Hình ảnh</a></li>
+                <li><a href="#faq" class="nav-link" data-i18n="nav-faq">FAQ</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav-contact">Liên hệ</a></li>
             </ul>
 
             <div class="header-cta">
@@ -69,6 +69,23 @@
                     <i class="fa-solid fa-phone-volume"></i>
                     0961 095 247
                 </a>
+                
+                <div class="header-controls">
+                    <button id="theme-toggle-btn" class="ctrl-btn" title="Chế độ sáng tối">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button id="lang-btn" class="ctrl-btn" title="Chọn ngôn ngữ">
+                            <i class="fa-solid fa-globe"></i>
+                        </button>
+                        <div class="lang-dropdown-content">
+                            <a href="javascript:void(0)" onclick="changeLanguage('vi')">🇻🇳 Tiếng Việt</a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('en')">🇬🇧 English</a>
+                            <a href="javascript:void(0)" onclick="changeLanguage('zh')">🇨🇳 中文</a>
+                        </div>
+                    </div>
+                </div>
+
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -146,13 +163,13 @@
                         <img src="images/workshop.png" alt="Xưởng máy nén khí Thịnh Phát">
                     </div>
                     <div class="about-experience-badge">
-                        <div class="number">10+</div>
-                        <div class="label">Năm kinh nghiệm</div>
+                        <div class="number">26</div>
+                        <div class="label" data-i18n="about-exp-label">Năm kinh nghiệm</div>
                     </div>
                 </div>
                 <div class="about-content animate-right">
-                    <div class="section-label"><i class="fa-solid fa-building"></i> VỀ CHÚNG TÔI</div>
-                    <h2>Công Ty TNHH<br>Thịnh Phát</h2>
+                    <div class="section-label" data-i18n="about-label"><i class="fa-solid fa-building"></i> VỀ CHÚNG TÔI</div>
+                    <h2 data-i18n="about-title">Công Ty TNHH<br>Thịnh Phát</h2>
                     <p>Khai trương từ năm 2000 và tọa lạc tại trung tâm công nghiệp Bình Dương (An Phú, Thuận An), <strong>Công Ty TNHH Thịnh Phát</strong> tự hào là một trong những đơn vị uy tín nhất trong lĩnh vực phân phối, lắp đặt và bảo trì hệ thống máy nén khí công nghiệp.</p>
                     <p>Chúng tôi chuyên cung cấp các dòng máy nén khí nội địa Nhật Bản chất lượng cao (cả cũ và mới) từ các thương hiệu nổi tiếng: Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki... đáp ứng mọi quy mô sản xuất.</p>
 
@@ -188,6 +205,162 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Interactive Timeline -->
+            <div class="timeline-container animate">
+                <h3 class="timeline-title" data-i18n="timeline-title"><i class="fa-solid fa-clock-rotate-left"></i> Chặng Đường 26 Năm Uy Tín & Phát Triển (Từ Năm 2000)</h3>
+                <div class="timeline-slider">
+                    <div class="timeline-item active" onclick="selectTimeline(0)">
+                        <div class="timeline-year">2000</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Khai Trương</h4>
+                            <p>Mở cơ sở đầu tiên tại Bình Dương, chuyên sửa chữa máy nén piston Nhật bãi.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" onclick="selectTimeline(1)">
+                        <div class="timeline-year">2008</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Trực Tiếp Nhập Khẩu</h4>
+                            <p>Nhập trực tiếp máy trục vít Hitachi, Kobelco nghĩa địa chất lượng cao.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" onclick="selectTimeline(2)">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Cung Cấp KCN</h4>
+                            <p>Lắp đặt hệ thống khí nén cho hàng trăm nhà xưởng lớn tại VSIP, Sóng Thần...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" onclick="selectTimeline(3)">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Trọn Gói Chuyên Nghiệp</h4>
+                            <p>Đạt cột mốc 20 năm, mở rộng dịch vụ lắp đặt đường ống dẫn khí nén chuyên nghiệp.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" onclick="selectTimeline(4)">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Nâng Tầm Dịch Vụ</h4>
+                            <p>Kỷ niệm 26 năm uy tín, cam kết dịch vụ bảo trì 24/7 và chuyển đổi số phục vụ tốt nhất.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Selector Wizard Section -->
+    <section id="smart-selector" class="section selector-section bg-white">
+        <div class="container">
+            <div class="section-header animate">
+                <div class="section-label" data-i18n="selector-label"><i class="fa-solid fa-wand-magic-sparkles"></i> TƯ VẤN NHANH</div>
+                <h2 class="section-title" data-i18n="selector-title">Bộ Chọn Máy Nén Khí Thông Minh</h2>
+                <p class="section-subtitle" data-i18n="selector-subtitle">Chỉ với 3 câu hỏi nhanh, hệ thống sẽ đề xuất cấu hình máy nén khí phù hợp nhất với nhu cầu xưởng sản xuất của bạn.</p>
+            </div>
+            
+            <div class="wizard-container animate">
+                <!-- Progress bar -->
+                <div class="wizard-progress">
+                    <div class="wizard-step-indicator active">1</div>
+                    <div class="wizard-step-line"></div>
+                    <div class="wizard-step-indicator">2</div>
+                    <div class="wizard-step-line"></div>
+                    <div class="wizard-step-indicator">3</div>
+                    <div class="wizard-step-line"></div>
+                    <div class="wizard-step-indicator">4</div>
+                </div>
+                
+                <div class="wizard-content">
+                    <!-- Step 1 -->
+                    <div class="wizard-step active" id="step1">
+                        <h3>Bước 1: Lĩnh vực / Mục đích sử dụng khí nén?</h3>
+                        <p class="step-desc">Loại khí nén cần sử dụng quyết định việc bạn cần mua dòng máy có dầu hay không dầu.</p>
+                        <div class="wizard-options">
+                            <div class="wizard-option" onclick="selectWizardOption(1, 'A')">
+                                <div class="option-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                                <h4>Sản xuất công nghiệp chung</h4>
+                                <p>Cơ khí chế tạo, sửa xe, phun sơn, bao bì giấy, dệt may...</p>
+                                <span class="option-badge">Khuyên dùng: Có Dầu</span>
+                            </div>
+                            <div class="wizard-option" onclick="selectWizardOption(1, 'B')">
+                                <div class="option-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                                <h4>Y tế, Dược phẩm, Thực phẩm</h4>
+                                <p>Nha khoa, chế biến thực phẩm, đóng gói thuốc, linh kiện điện tử...</p>
+                                <span class="option-badge warning">Bắt buộc: Không Dầu</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="wizard-step" id="step2">
+                        <h3>Bước 2: Quy mô thiết bị sử dụng khí trong xưởng?</h3>
+                        <p class="step-desc">Số lượng và loại thiết bị tiêu thụ khí nén quyết định công suất (HP / kW) phù hợp.</p>
+                        <div class="wizard-options">
+                            <div class="wizard-option" onclick="selectWizardOption(2, 'A')">
+                                <div class="option-icon"><i class="fa-solid fa-store"></i></div>
+                                <h4>Cơ sở sản xuất nhỏ lẻ</h4>
+                                <p>Dưới 3 thiết bị dùng khí (súng xiết ốc, máy mài mini, phun sơn nhỏ...)</p>
+                                <span class="option-badge">Cần 2 - 10 HP (Piston/Trục vít nhỏ)</span>
+                            </div>
+                            <div class="wizard-option" onclick="selectWizardOption(2, 'B')">
+                                <div class="option-icon"><i class="fa-solid fa-industry"></i></div>
+                                <h4>Xưởng sản xuất vừa & lớn</h4>
+                                <p>Nhiều máy công cụ, xưởng mộc lớn, dây chuyền đóng gói liên tục...</p>
+                                <span class="option-badge">Cần 15 - 50 HP (Trục vít công nghiệp)</span>
+                            </div>
+                            <div class="wizard-option" onclick="selectWizardOption(2, 'C')">
+                                <div class="option-icon"><i class="fa-solid fa-building-shield"></i></div>
+                                <h4>Nhà máy quy mô lớn</h4>
+                                <p>Dây chuyền tự động hóa cao, hoạt động 24/7, yêu cầu lưu lượng khí cực lớn...</p>
+                                <span class="option-badge">Cần 75 - 100+ HP (Hệ thống lớn)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="wizard-step" id="step3">
+                        <h3>Bước 3: Yêu cầu về điện năng & Độ ồn?</h3>
+                        <p class="step-desc">Bạn muốn tối ưu hóa điện năng tiêu thụ hay chi phí đầu tư ban đầu?</p>
+                        <div class="wizard-options">
+                            <div class="wizard-option" onclick="selectWizardOption(3, 'A')">
+                                <div class="option-icon"><i class="fa-solid fa-leaf"></i></div>
+                                <h4>Tiết kiệm điện tối đa (Biến tần Inverter)</h4>
+                                <p>Chạy siêu êm, tiết kiệm điện 30%, áp suất ổn định tuyệt đối, chạy liên tục tốt.</p>
+                                <span class="option-badge success">Khuyên dùng cho trục vít</span>
+                            </div>
+                            <div class="wizard-option" onclick="selectWizardOption(3, 'B')">
+                                <div class="option-icon"><i class="fa-solid fa-coins"></i></div>
+                                <h4>Tối ưu chi phí đầu tư ban đầu</h4>
+                                <p>Dòng máy cơ bản chạy ngắt quãng, phù hợp nhu cầu dùng khí không liên tục.</p>
+                                <span class="option-badge">Giá rẻ hơn, bền bỉ</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="wizard-step" id="step4">
+                        <div class="wizard-result-box">
+                            <div class="result-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <h3>Cấu hình máy nén khí khuyên dùng</h3>
+                            <div class="result-details" id="wizardResultDetails">
+                                <!-- Generated recommendation here -->
+                            </div>
+                            <p class="result-hint">Kết quả tư vấn này sẽ được tự động soạn thành tin nhắn gửi trực tiếp đến Zalo của anh Xuân để nhận báo giá chi tiết nhất.</p>
+                            
+                            <div class="wizard-actions">
+                                <button onclick="resetWizard()" class="btn btn-outline" style="border: 2px solid var(--border); border-radius: 50px; font-weight:600; padding: 0.8rem 1.5rem; cursor:pointer;"><i class="fa-solid fa-rotate-left"></i> Chọn lại</button>
+                                <button onclick="sendWizardResult()" class="btn btn-primary" style="background: #0084ff; border: none; border-radius: 50px; font-weight:700; padding: 0.8rem 2rem; display: inline-flex; align-items:center; gap:0.5rem; color: white; cursor:pointer;"><i class="fa-solid fa-comment-dots"></i> Gửi Zalo Nhận Báo Giá</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -195,18 +368,18 @@
     <section id="products" class="section bg-light">
         <div class="container">
             <div class="section-header animate">
-                <div class="section-label"><i class="fa-solid fa-boxes-stacked"></i> SẢN PHẨM</div>
-                <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
-                <p class="section-subtitle">Khám phá các dòng máy nén khí hiệu suất cao, đa dạng công suất từ Thịnh Phát. Máy nội địa Nhật chất lượng cao, giá cạnh tranh.</p>
+                <div class="section-label" data-i18n="products-label"><i class="fa-solid fa-boxes-stacked"></i> SẢN PHẨM</div>
+                <h2 class="section-title" data-i18n="products-title">Sản Phẩm Nổi Bật</h2>
+                <p class="section-subtitle" data-i18n="products-subtitle">Khám phá các dòng máy nén khí hiệu suất cao, đa dạng công suất từ Thịnh Phát. Máy nội địa Nhật chất lượng cao, giá cạnh tranh.</p>
             </div>
 
             <div class="products-filter animate">
-                <button class="filter-btn active" data-filter="all">Tất Cả</button>
-                <button class="filter-btn" data-filter="piston">Máy Piston</button>
-                <button class="filter-btn" data-filter="trucvit">Máy Trục Vít</button>
-                <button class="filter-btn" data-filter="cu">Nội Địa Cũ</button>
-                <button class="filter-btn" data-filter="moi">Mới 100%</button>
-                <button class="filter-btn" data-filter="phutung">Phụ Tùng</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Tất Cả</button>
+                <button class="filter-btn" data-filter="piston" data-i18n="filter-piston">Máy Piston</button>
+                <button class="filter-btn" data-filter="trucvit" data-i18n="filter-screw">Máy Trục Vít</button>
+                <button class="filter-btn" data-filter="cu" data-i18n="filter-used">Nội Địa Cũ</button>
+                <button class="filter-btn" data-filter="moi" data-i18n="filter-new">Mới 100%</button>
+                <button class="filter-btn" data-filter="phutung" data-i18n="filter-parts">Phụ Tùng</button>
             </div>
 
             <div class="products-grid" id="productContainer">
@@ -231,9 +404,13 @@
                             <li><i class="fa-solid fa-cloud-sun"></i> ProAir Outdoor</li>
                             <li><i class="fa-solid fa-star"></i> Tình trạng: Hoạt động hoàn hảo</li>
                         </ul>
+                        <a onclick="openQuickView('p1')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Máy Nén Trục Vít SMS22E-B 30HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -259,9 +436,13 @@
                             <li><i class="fa-solid fa-gauge-high"></i> Áp suất: 7 - 8.5 Bar</li>
                             <li><i class="fa-solid fa-wrench"></i> Siêu tiết kiệm điện năng</li>
                         </ul>
+                        <a onclick="openQuickView('p2')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Máy Nén Trục Vít ZgaiardX Z37 50HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,9 +461,13 @@
                             <li><i class="fa-solid fa-volume-xmark"></i> Độ ồn cực thấp</li>
                             <li><i class="fa-solid fa-shield-halved"></i> Bảo hành 12 tháng</li>
                         </ul>
+                        <a onclick="openQuickView('p3')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Máy Nén Trục Vít ZV37 50HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -301,9 +486,13 @@
                             <li><i class="fa-solid fa-temperature-low"></i> Tản nhiệt cực tốt</li>
                             <li><i class="fa-solid fa-star"></i> Tình trạng: Đẹp 95%</li>
                         </ul>
+                        <a onclick="openQuickView('p4')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Máy Nén Trục Vít 100HP (75kW)')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -322,9 +511,13 @@
                             <li><i class="fa-solid fa-gauge-high"></i> Áp suất ổn định</li>
                             <li><i class="fa-solid fa-star"></i> Nguyên bản nội địa</li>
                         </ul>
+                        <a onclick="openQuickView('p5')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Máy Nén Khí Trục Vít Kobelco')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,10 +545,14 @@
                             <li><i class="fa-solid fa-oil-can"></i> Dầu nhớt chất lượng cao</li>
                             <li><i class="fa-solid fa-gears"></i> Sẵn kho số lượng lớn</li>
                         </ul>
+                        <a onclick="openQuickView('p6')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <a href="tel:0961095247" class="product-contact"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
-            </div>
+                            <div class="product-actions">
+                                <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
+                                <button onclick="contactZalo('Phụ Tùng & Linh Kiện Chính Hãng')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                            </div>
+                        </div>
 
 
             <div class="text-center" style="margin-top: 3rem;">
@@ -572,8 +769,8 @@
             <h2>Bạn Đang Tìm Máy Nén Khí?</h2>
             <p>Liên hệ ngay hôm nay để được anh Xuân tư vấn miễn phí và nhận báo giá tốt nhất cho dòng máy phù hợp với nhu cầu sản xuất của bạn.</p>
             <div class="cta-actions">
-                <a href="tel:0961095247" class="btn btn-white btn-lg"><i class="fa-solid fa-phone"></i> Gọi 0961 095 247</a>
-                <a href="https://zalo.me/0961095247" target="_blank" class="btn btn-outline btn-lg" style="color: white; border-color: white;"><i class="fa-solid fa-comment-dots"></i> Chat Zalo</a>
+                <a href="tel:0961095247" class="btn btn-primary btn-lg"><i class="fa-solid fa-phone"></i> Gọi 0961 095 247</a>
+                <a href="https://zalo.me/0961095247" target="_blank" class="btn btn-zalo btn-lg"><i class="fa-solid fa-comment-dots"></i> Chat Zalo</a>
             </div>
         </div>
     </section>
@@ -745,7 +942,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo" style="margin-bottom: 0.5rem;">
-                        <div class="logo-icon"><i class="fa-solid fa-wind"></i></div>
+                        <img src="images/logo.png" alt="Thịnh Phát Logo" class="logo-img">
                         <div class="logo-text">THỊNH PHÁT</div>
                     </div>
                     <p>Công ty TNHH Thịnh Phát — Chuyên cung cấp, lắp đặt, bảo dưỡng máy nén khí công nghiệp nội địa Nhật Bản cũ và mới. Uy tín số 1 tại Bình Dương và toàn quốc.</p>
@@ -813,6 +1010,108 @@
     <button class="back-to-top" id="backToTop" title="Lên đầu trang">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
+    <!-- Zalo Inquiry Modal -->
+    <div id="zaloModal" class="zalo-modal">
+        <div class="zalo-modal-content">
+            <span class="zalo-modal-close" onclick="closeZaloModal()">&times;</span>
+            <div class="zalo-modal-header">
+                <div class="zalo-modal-logo-css">Zalo</div>
+                <h3>Đang Kết Nối Zalo...</h3>
+            </div>
+            <div class="zalo-modal-body">
+                <p>Tin nhắn hỏi giá cho sản phẩm <strong id="zaloProductName"></strong> đã được tự động sao chép vào bộ nhớ tạm của bạn.</p>
+                <div class="zalo-message-box">
+                    <p id="zaloMessageText"></p>
+                </div>
+                <p class="zalo-hint"><i class="fa-solid fa-circle-info"></i> Hãy <strong>Dán (Paste)</strong> tin nhắn này vào ô chat Zalo với anh Xuân để gửi yêu cầu nhé!</p>
+                <div class="zalo-progress-bar">
+                    <div class="zalo-progress-fill"></div>
+                </div>
+                <a href="#" id="zaloRedirectBtn" target="_blank" class="zalo-btn-action">
+                    <i class="fa-solid fa-paper-plane"></i> Mở Zalo và Gửi Ngay
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Product Quick View Modal -->
+    <div id="quickViewModal" class="qv-modal">
+        <div class="qv-modal-content">
+            <span class="qv-modal-close" onclick="closeQuickView()">&times;</span>
+            <div class="qv-grid">
+                <div class="qv-images">
+                    <div class="qv-main-img-container">
+                        <img id="qvMainImg" src="" alt="Sản phẩm">
+                    </div>
+                    <div class="qv-thumbs" id="qvThumbsContainer">
+                        <!-- Thumbnails populated dynamically -->
+                    </div>
+                </div>
+                <div class="qv-details">
+                    <span class="qv-brand" id="qvBrand"></span>
+                    <h2 id="qvTitle"></h2>
+                    <span class="qv-category-badge" id="qvCategory"></span>
+                    
+                    <div class="qv-specs-section">
+                        <h4>Thông Số Kỹ Thuật Chi Tiết</h4>
+                        <table class="qv-specs-table">
+                            <tr>
+                                <td>Công suất:</td>
+                                <td id="qvPower"></td>
+                            </tr>
+                            <tr>
+                                <td>Lưu lượng khí:</td>
+                                <td id="qvFlow"></td>
+                            </tr>
+                            <tr>
+                                <td>Áp suất làm việc:</td>
+                                <td id="qvPressure"></td>
+                            </tr>
+                            <tr>
+                                <td>Điện áp:</td>
+                                <td id="qvVoltage"></td>
+                            </tr>
+                            <tr>
+                                <td>Tình trạng máy:</td>
+                                <td id="qvStatus"></td>
+                            </tr>
+                            <tr>
+                                <td>Hệ thống sấy khí:</td>
+                                <td id="qvDryer"></td>
+                            </tr>
+                            <tr>
+                                <td>Làm mát / Truyền động:</td>
+                                <td id="qvCooling"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="qv-maintenance-tip">
+                        <h5><i class="fa-solid fa-lightbulb"></i> Lời khuyên bảo dưỡng:</h5>
+                        <p id="qvMaintenance"></p>
+                    </div>
+                    
+                    <div class="qv-actions">
+                        <a href="tel:0961095247" class="btn-icon" title="Gọi hotline"><i class="fa-solid fa-phone"></i></a>
+                        <button id="qvZaloBtn" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Yêu cầu báo giá qua Zalo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Mobile Contact Bar -->
+    <div class="sticky-mobile-bar">
+        <a href="tel:0961095247" class="sticky-btn sticky-call">
+            <i class="fa-solid fa-phone"></i> Gọi Điện Ngay
+        </a>
+        <a href="https://zalo.me/0961095247" target="_blank" class="sticky-btn sticky-zalo">
+            <i class="fa-solid fa-comment-dots"></i> Chat Zalo
+        </a>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -997,6 +1296,1049 @@
             thumb.classList.add('active');
             mainImgs[index].classList.add('active');
         }
+
+        // ===== Switch Image Function =====
+        function switchImg(thumb) {
+            const gallery = thumb.closest('.product-gallery');
+            const thumbs = gallery.querySelectorAll('.thumb');
+            const mainImgs = gallery.querySelectorAll('.gallery-main img');
+            
+            const index = Array.from(thumbs).indexOf(thumb);
+            
+            thumbs.forEach(t => t.classList.remove('active'));
+            mainImgs.forEach(m => m.classList.remove('active'));
+            
+            thumb.classList.add('active');
+            mainImgs[index].classList.add('active');
+        }
+
+        // ===== Product Spec Data =====
+        const productSpecs = {
+            p1: {
+                title: "Máy Nén Trục Vít SMS22E-B 30HP",
+                brand: "Airman",
+                category: "Trục Vít Ngập Dầu",
+                power: "30 HP (22 kW)",
+                flow: "3.7 m³/phút (3700 Lít/phút)",
+                pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
+                voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
+                status: "Đã qua sử dụng (Mới 90-95%, nguyên bản)",
+                dryer: "Tích hợp máy sấy tách ẩm khí nén",
+                cooling: "Làm mát bằng gió / Truyền động dây đai",
+                maintenance: "Thay thế dầu máy nén khí trục vít chuyên dụng mỗi 3000 giờ chạy. Vệ sinh lưới lọc bụi tản nhiệt định kỳ hàng tuần.",
+                images: ["images/airman-sms22e-front.jpg", "images/airman-sms22e-inside.jpg"]
+            },
+            p2: {
+                title: "Máy Nén Trục Vít ZgaiardX Z37 50HP",
+                brand: "Mitsui Seiki",
+                category: "Trục Vít Ngập Dầu",
+                power: "50 HP (37 kW)",
+                flow: "6.2 m³/phút (6200 Lít/phút)",
+                pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
+                voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
+                status: "Đã qua sử dụng (Zin nguyên bản 95%)",
+                dryer: "Tích hợp hệ thống sấy tách nước",
+                cooling: "Làm mát bằng gió / Truyền động trực tiếp",
+                maintenance: "Kiểm tra và châm thêm dầu bôi trơn định kỳ. Bảo dưỡng thay lọc dầu, lọc tách định kỳ mỗi 2000-3000 giờ hoạt động.",
+                images: ["images/mitsui-z37-front.png", "images/mitsui-z37-side.jpg"]
+            },
+            p3: {
+                title: "Máy Nén Trục Vít ZV37 50HP",
+                brand: "Mitsui Seiki",
+                category: "Trục Vít Tiết Kiệm Điện (Inverter)",
+                power: "50 HP (37 kW)",
+                flow: "6.3 m³/phút (6300 Lít/phút)",
+                pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
+                voltage: "3 Pha 380V / 50Hz (Có sấy khí)",
+                status: "Nội địa Nhật chất lượng cao (Zin 90%)",
+                dryer: "Tích hợp sấy khí khô lọc bụi bẩn",
+                cooling: "Làm mát bằng gió / Inverter biến tần",
+                maintenance: "Giữ môi trường đặt máy khô thoáng, tránh nhiệt độ quá cao làm hư biến tần. Định kỳ vệ sinh màng lọc gió đầu vào.",
+                images: ["images/mitsui-zv37.jpg"]
+            },
+            p4: {
+                title: "Máy Nén Trục Vít 100HP (75kW)",
+                brand: "Mitsui Seiki",
+                category: "Trục Vít Công Nghiệp Nặng",
+                power: "100 HP (75 kW)",
+                flow: "12.8 m³/phút (12800 Lít/phút)",
+                pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
+                voltage: "3 Pha 380V / 50Hz",
+                status: "Nội địa Nhật đã qua bảo trì (Đẹp 95%)",
+                dryer: "Độc lập hoặc tích hợp (Tùy chọn khách hàng)",
+                cooling: "Làm mát bằng gió (giàn tản nhiệt lớn) / Truyền động khớp nối cứng",
+                maintenance: "Sử dụng dầu bôi trơn chất lượng cao chịu nhiệt tốt. Thường xuyên kiểm tra lượng nước ngưng trong bình tách.",
+                images: ["images/mitsui-seiki-large.jpg"]
+            },
+            p5: {
+                title: "Máy Nén Khí Trục Vít Kobelco",
+                brand: "Kobelco",
+                category: "Trục Vít Dòng Kobelion",
+                power: "30 HP - 50 HP (Tùy chọn)",
+                flow: "3.8 - 6.5 m³/phút (Tùy phiên bản)",
+                pressure: "0.75 - 0.85 MPa (7.5 - 8.5 Bar)",
+                voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
+                status: "Zin nguyên bản hoạt động cực êm (Mới 90%)",
+                dryer: "Tích hợp máy sấy khí bên trong vỏ cách âm",
+                cooling: "Làm mát bằng gió / Truyền động trực tiếp",
+                maintenance: "Vệ sinh giàn tản nhiệt định kỳ để tránh máy tự ngắt do nhiệt độ cao. Thay dầu định kỳ đúng tiêu chuẩn hãng Kobelco.",
+                images: ["images/Kobelco-handsome.jpg"]
+            },
+            p6: {
+                title: "Phụ Tùng & Linh Kiện Chính Hãng",
+                brand: "Đa Thương Hiệu Nhật Bản",
+                category: "Vật Tư Tiêu Hao & Linh Kiện",
+                power: "Phù hợp mọi công suất máy nén",
+                flow: "Theo thông số máy",
+                pressure: "Chịu áp lực cao lên tới 16 Bar",
+                voltage: "N/A",
+                status: "Mới 100% (Nhập khẩu chính hãng Nhật/Đài Loan)",
+                dryer: "Đầy đủ lõi lọc, hạt hút ẩm lọc sấy",
+                cooling: "Quạt tản nhiệt, giàn mát dầu thay thế",
+                maintenance: "Thay thế lọc định kỳ theo số giờ vận hành khuyến nghị (Lọc dầu: 2000h, Lọc tách dầu: 3000h, Lọc gió: 2000h).",
+                images: ["images/parts2.png", "images/parts3.png", "images/parts4.png"]
+            }
+        };
+
+        // ===== Quick View Functions =====
+        function openQuickView(id) {
+            const data = productSpecs[id];
+            if (!data) return;
+            
+            document.getElementById('qvTitle').textContent = data.title;
+            document.getElementById('qvBrand').textContent = data.brand;
+            document.getElementById('qvCategory').textContent = data.category;
+            document.getElementById('qvPower').textContent = data.power;
+            document.getElementById('qvFlow').textContent = data.flow;
+            document.getElementById('qvPressure').textContent = data.pressure;
+            document.getElementById('qvVoltage').textContent = data.voltage;
+            document.getElementById('qvStatus').textContent = data.status;
+            document.getElementById('qvDryer').textContent = data.dryer;
+            document.getElementById('qvCooling').textContent = data.cooling;
+            document.getElementById('qvMaintenance').textContent = data.maintenance;
+            
+            const mainImg = document.getElementById('qvMainImg');
+            mainImg.src = data.images[0];
+            mainImg.alt = data.title;
+            
+            const thumbsContainer = document.getElementById('qvThumbsContainer');
+            thumbsContainer.innerHTML = '';
+            
+            if (data.images.length > 1) {
+                data.images.forEach((imgSrc, idx) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.className = idx === 0 ? 'active' : '';
+                    img.onclick = function() {
+                        mainImg.src = imgSrc;
+                        thumbsContainer.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+                        img.classList.add('active');
+                    };
+                    thumbsContainer.appendChild(img);
+                });
+            }
+            
+            const zaloBtn = document.getElementById('qvZaloBtn');
+            zaloBtn.onclick = function() {
+                closeQuickView();
+                contactZalo(data.title);
+            };
+            
+            document.getElementById('quickViewModal').classList.add('show');
+        }
+        
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('show');
+        }
+
+        // ===== Timeline Navigation =====
+        function selectTimeline(index) {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, idx) => {
+                if (idx === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // ===== Smart Selector Wizard Logic =====
+        let wizardAnswers = {};
+        
+        function selectWizardOption(step, option) {
+            wizardAnswers[step] = option;
+            
+            const currentStepEl = document.getElementById(`step${step}`);
+            const currentIndicator = document.querySelectorAll('.wizard-step-indicator')[step - 1];
+            const currentLine = document.querySelectorAll('.wizard-step-line')[step - 1];
+            
+            currentIndicator.classList.add('complete');
+            if (currentLine) currentLine.classList.add('complete');
+            
+            currentStepEl.classList.remove('active');
+            
+            const nextStep = step + 1;
+            const nextStepEl = document.getElementById(`step${nextStep}`);
+            const nextIndicator = document.querySelectorAll('.wizard-step-indicator')[nextStep - 1];
+            
+            if (nextStepEl) {
+                nextStepEl.classList.add('active');
+                nextIndicator.classList.add('active');
+            }
+            
+            if (nextStep === 4) {
+                calculateWizardResult();
+            }
+        }
+        
+        function calculateWizardResult() {
+            const industry = wizardAnswers[1];
+            const scale = wizardAnswers[2];
+            const inverter = wizardAnswers[3];
+            
+            let resultTitle = "";
+            let resultFeatures = [];
+            
+            if (industry === 'B') {
+                if (scale === 'A') {
+                    resultTitle = "Máy Nén Piston Không Dầu Anest Iwata / Hitachi (2HP - 5HP)";
+                    resultFeatures = [
+                        "100% Khí nén siêu sạch không dầu bảo vệ tối đa sức khỏe & máy móc y khoa.",
+                        "Thiết kế gọn gàng, đầu nén bền bỉ đặc trưng từ thương hiệu Nhật.",
+                        "Tiếng ồn siêu nhỏ, thích hợp phòng khám nha khoa hoặc đóng gói thực phẩm mini."
+                    ];
+                } else if (scale === 'B') {
+                    resultTitle = "Máy Nén Trục Vít Không Dầu Anest Iwata / Hitachi (15HP - 30HP)";
+                    resultFeatures = [
+                        "Đã tích hợp sẵn máy sấy khí giúp cấp nguồn khí khô sạch tinh khiết tuyệt đối.",
+                        "Khả năng vận hành bền bỉ liên tục phục vụ cho sản xuất.",
+                        "Đề xuất dòng có Biến tần (Inverter) giúp tiết kiệm điện tối ưu hơn."
+                    ];
+                } else {
+                    resultTitle = "Hệ thống Trục Vít Không Dầu Hitachi / Kobelco (50HP - 100HP)";
+                    resultFeatures = [
+                        "Công suất lớn phục vụ dây chuyền chế biến thực phẩm, nhà máy dược tự động hóa.",
+                        "Nên bố trí 2 máy luân phiên để đảm bảo không bị gián đoạn nguồn khí nén.",
+                        "Tích hợp hệ thống sấy tách nước độc lập hiệu suất cao."
+                    ];
+                }
+            } else {
+                if (scale === 'A') {
+                    resultTitle = "Máy Nén Khí Piston Hitachi / Iwata nội địa Nhật (5HP - 10HP)";
+                    resultFeatures = [
+                        "Cấu tạo ngập dầu cực bền, rất dễ dàng bảo trì sửa chữa với linh kiện sẵn có.",
+                        "Mức chi phí đầu tư vô cùng hợp lý cho xưởng mộc, gara ô tô, phun sơn.",
+                        "Vận hành êm ái hơn hẳn các dòng máy rẻ tiền ngoài thị trường."
+                    ];
+                } else if (scale === 'B') {
+                    const type = inverter === 'A' ? "Inverter (Biến tần)" : "Truyền động dây đai";
+                    resultTitle = `Máy nén trục vít Kobelco / Airman 30HP - 50HP ${type}`;
+                    resultFeatures = [
+                        inverter === 'A' 
+                            ? "Trang bị biến tần giúp kiểm soát dòng khởi động, tiết kiệm tới 30-40% tiền điện." 
+                            : "Vận hành đơn giản, độ bền cơ học cao, chi phí linh kiện bảo dưỡng rất rẻ.",
+                        "Tích hợp bộ sấy khí tách ẩm bảo vệ các thiết bị cơ khí, súng phun sơn.",
+                        "Khung vỏ cách âm chuyên nghiệp, giảm tối đa độ ồn xưởng sản xuất."
+                    ];
+                } else {
+                    const type = inverter === 'A' ? "Inverter (Biến tần)" : "Khớp nối mềm";
+                    resultTitle = `Máy nén trục vít Mitsui Seiki / Hitachi 75HP - 100HP ${type}`;
+                    resultFeatures = [
+                        "Dòng máy công nghiệp tải nặng chuyên dụng cho nhà máy quy mô công nghiệp.",
+                        "Đầu nén hiệu suất cao, giàn giải nhiệt lớn giúp hoạt động liên tục tốt dưới trời nắng.",
+                        "Bảng điều khiển số thông minh tự ngắt bảo vệ khi xảy ra quá tải hoặc thiếu dầu."
+                    ];
+                }
+            }
+            
+            const container = document.getElementById('wizardResultDetails');
+            let html = `<h4><i class="fa-solid fa-wand-magic-sparkles"></i> Đề Xuất Của Hệ Thống:</h4>`;
+            html += `<h5 style="color: var(--secondary); font-size: 1.15rem; margin-bottom: 1rem; font-weight: 700;">${resultTitle}</h5>`;
+            html += `<ul style="list-style: none; padding-left: 0;">`;
+            resultFeatures.forEach(feature => {
+                html += `<li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem; align-items: flex-start;"><i class="fa-solid fa-circle-check" style="color: #22c55e; margin-top: 3px;"></i> <span>${feature}</span></li>`;
+            });
+            html += `</ul>`;
+            
+            container.innerHTML = html;
+            container.dataset.resultText = resultTitle;
+        }
+        
+        function resetWizard() {
+            wizardAnswers = {};
+            
+            document.querySelectorAll('.wizard-step-indicator').forEach((ind, idx) => {
+                ind.classList.remove('active', 'complete');
+                if (idx === 0) ind.classList.add('active');
+            });
+            document.querySelectorAll('.wizard-step-line').forEach(line => {
+                line.classList.remove('complete');
+            });
+            
+            document.querySelectorAll('.wizard-step').forEach((step, idx) => {
+                step.classList.remove('active');
+                if (idx === 0) step.classList.add('active');
+            });
+        }
+        
+        function sendWizardResult() {
+            const resultTitle = document.getElementById('wizardResultDetails').dataset.resultText;
+            const lang = localStorage.getItem('lang') || 'vi';
+            
+            const messages = {
+                vi: `Chào anh Xuân, tôi đã dùng bộ chọn máy trên web và nhận được đề xuất: "${resultTitle}". Nhờ anh tư vấn chi tiết và báo giá dòng máy này giúp tôi!`,
+                en: `Hello Mr. Xuan, I used the selector wizard on the web and got the recommendation: "${resultTitle}". Please send me more details and a quote!`,
+                zh: `您好，宣经理。我在网站上使用了智能选型系统，系统推荐的型号是："${resultTitle}"。请向我发送该型号的详细信息及报价！`
+            };
+            
+            const message = messages[lang] || messages['vi'];
+            
+            navigator.clipboard.writeText(message).then(() => {
+                console.log('Copy wizard result success');
+            }).catch(err => {
+                console.error('Clipboard copy failed: ', err);
+            });
+            
+            const modal = document.getElementById('zaloModal');
+            const pNameEl = document.getElementById('zaloProductName');
+            const msgEl = document.getElementById('zaloMessageText');
+            const redirectBtn = document.getElementById('zaloRedirectBtn');
+            const progressFill = document.querySelector('.zalo-progress-fill');
+            
+            pNameEl.textContent = lang === 'en' ? "Smart Selector" : (lang === 'zh' ? "智能选型" : "Bộ Chọn Máy Nén Khí");
+            msgEl.textContent = message;
+            redirectBtn.href = `https://zalo.me/0961095247`;
+            
+            modal.classList.add('show');
+            
+            progressFill.style.transition = 'none';
+            progressFill.style.width = '0%';
+            
+            setTimeout(() => {
+                progressFill.style.transition = 'width 2.2s linear';
+                progressFill.style.width = '100%';
+            }, 50);
+            
+            zaloTimeout = setTimeout(() => {
+                window.open(`https://zalo.me/0961095247`, '_blank');
+            }, 2200);
+        }
+
+        // ===== Zalo Auto Message Inquiry & Redirect =====
+        let zaloTimeout;
+        function contactZalo(productName) {
+            const modal = document.getElementById('zaloModal');
+            const pNameEl = document.getElementById('zaloProductName');
+            const msgEl = document.getElementById('zaloMessageText');
+            const redirectBtn = document.getElementById('zaloRedirectBtn');
+            const progressFill = document.querySelector('.zalo-progress-fill');
+            
+            const lang = localStorage.getItem('lang') || 'vi';
+            
+            const messages = {
+                vi: `Chào anh Xuân, tôi cần báo giá và tư vấn kỹ thuật cho sản phẩm: ${productName}. Nhờ anh tư vấn giúp tôi.`,
+                en: `Hello Mr. Xuan, I would like to request a quote and technical consultation for: ${productName}. Please contact me soon.`,
+                zh: `您好，宣经理。我需要关于产品 ${productName} 的报价 and 技术咨询。请您尽快与我联络。`
+            };
+            
+            const message = messages[lang] || messages['vi'];
+            
+            pNameEl.textContent = productName;
+            msgEl.textContent = message;
+            
+            // Try to copy to clipboard
+            navigator.clipboard.writeText(message).then(() => {
+                console.log('Copy message success');
+            }).catch(err => {
+                console.error('Clipboard copy failed: ', err);
+            });
+            
+            redirectBtn.href = `https://zalo.me/0961095247`;
+            
+            // Open modal
+            modal.classList.add('show');
+            
+            // Reset and trigger progress bar
+            progressFill.style.transition = 'none';
+            progressFill.style.width = '0%';
+            
+            setTimeout(() => {
+                progressFill.style.transition = 'width 2.2s linear';
+                progressFill.style.width = '100%';
+            }, 50);
+            
+            // Auto redirect after 2.2 seconds
+            zaloTimeout = setTimeout(() => {
+                window.open(`https://zalo.me/0961095247`, '_blank');
+            }, 2200);
+        }
+        
+        function closeZaloModal() {
+            const modal = document.getElementById('zaloModal');
+            modal.classList.remove('show');
+            clearTimeout(zaloTimeout);
+            
+            const progressFill = document.querySelector('.zalo-progress-fill');
+            progressFill.style.transition = 'none';
+            progressFill.style.width = '0%';
+        }
+        
+        // Close modal when clicking outside contents
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('zaloModal');
+            const qvModal = document.getElementById('quickViewModal');
+            if (event.target === modal) {
+                closeZaloModal();
+            }
+            if (event.target === qvModal) {
+                closeQuickView();
+            }
+        });
+
+        // ===== Translation Dictionary =====
+        const i18n = {
+            vi: {
+                "nav-home": "Trang chủ",
+                "nav-about": "Về chúng tôi",
+                "nav-products": "Sản phẩm",
+                "nav-services": "Dịch vụ",
+                "nav-gallery": "Hình ảnh",
+                "nav-faq": "FAQ",
+                "nav-contact": "Liên hệ",
+                "about-exp-label": "Năm kinh nghiệm",
+                "about-label": '<i class="fa-solid fa-building"></i> VỀ CHÚNG TÔI',
+                "about-title": "Công Ty TNHH<br>Thịnh Phát",
+                "timeline-title": '<i class="fa-solid fa-clock-rotate-left"></i> Chặng Đường 26 Năm Uy Tín & Phát Triển (Từ Năm 2000)',
+                "selector-label": '<i class="fa-solid fa-wand-magic-sparkles"></i> TƯ VẤN NHANH',
+                "selector-title": "Bộ Chọn Máy Nén Khí Thông Minh",
+                "selector-subtitle": "Chỉ với 3 câu hỏi nhanh, hệ thống sẽ đề xuất cấu hình máy nén khí phù hợp nhất với nhu cầu xưởng sản xuất của bạn.",
+                "products-label": '<i class="fa-solid fa-boxes-stacked"></i> SẢN PHẨM',
+                "products-title": "Sản Phẩm Nổi Bật",
+                "products-subtitle": "Khám phá các dòng máy nén khí hiệu suất cao, đa dạng công suất từ Thịnh Phát. Máy nội địa Nhật chất lượng cao, giá cạnh tranh.",
+                "filter-all": "Tất Cả",
+                "filter-piston": "Máy Piston",
+                "filter-screw": "Máy Trục Vít",
+                "filter-used": "Nội Địa Cũ",
+                "filter-new": "Mới 100%",
+                "filter-parts": "Phụ Tùng"
+            },
+            en: {
+                "nav-home": "Home",
+                "nav-about": "About Us",
+                "nav-products": "Products",
+                "nav-services": "Services",
+                "nav-gallery": "Gallery",
+                "nav-faq": "FAQ",
+                "nav-contact": "Contact",
+                "about-exp-label": "Years of Experience",
+                "about-label": '<i class="fa-solid fa-building"></i> ABOUT US',
+                "about-title": "Thinh Phat Co., Ltd",
+                "timeline-title": '<i class="fa-solid fa-clock-rotate-left"></i> 26 Years of Prestige & Development (Since 2000)',
+                "selector-label": '<i class="fa-solid fa-wand-magic-sparkles"></i> QUICK ADVICE',
+                "selector-title": "Smart Air Compressor Selector",
+                "selector-subtitle": "In just 3 quick questions, the system will recommend the most suitable air compressor configuration for your workshop.",
+                "products-label": '<i class="fa-solid fa-boxes-stacked"></i> PRODUCTS',
+                "products-title": "Featured Products",
+                "products-subtitle": "Explore high-performance air compressors, diverse capacities from Thinh Phat. High quality Japanese domestic machines, competitive prices.",
+                "filter-all": "All",
+                "filter-piston": "Piston",
+                "filter-screw": "Screw",
+                "filter-used": "Japanese Used",
+                "filter-new": "100% New",
+                "filter-parts": "Spare Parts"
+            },
+            zh: {
+                "nav-home": "首页",
+                "nav-about": "关于我们",
+                "nav-products": "产品中心",
+                "nav-services": "服务项目",
+                "nav-gallery": "现场图集",
+                "nav-faq": "常见问题",
+                "nav-contact": "联系我们",
+                "about-exp-label": "年行业经验",
+                "about-label": '<i class="fa-solid fa-building"></i> 关于我们',
+                "about-title": "盛发有限公司",
+                "timeline-title": '<i class="fa-solid fa-clock-rotate-left"></i> 盛发26载信誉与发展历程（自2000年）',
+                "selector-label": '<i class="fa-solid fa-wand-magic-sparkles"></i> 快速选型',
+                "selector-title": "智能空气压缩机选型系统",
+                "selector-subtitle": "只需回答 3 个快速问题，系统将为您的工厂推荐最合适的空压机配置方案。",
+                "products-label": '<i class="fa-solid fa-boxes-stacked"></i> 旗下产品',
+                "products-title": "热门推荐产品",
+                "products-subtitle": "探索盛发高效能空压机，规格齐全。日本高品质原装机，价格合理，极具竞争优势。",
+                "filter-all": "全部产品",
+                "filter-piston": "活塞机",
+                "filter-screw": "螺杆机",
+                "filter-used": "日本二手",
+                "filter-new": "全新原装",
+                "filter-parts": "配件耗材"
+            }
+        };
+
+        const selectorTranslations = {
+            vi: {
+                ".hero-badge": '<i class="fa-solid fa-medal"></i> ĐỐI TÁC TIN CẬY CHO MỌI DOANH NGHIỆP',
+                ".hero-title": 'Giải Pháp <span>Khí Nén</span> Toàn Diện & Bền Bỉ',
+                ".hero-desc": 'Công ty TNHH Thịnh Phát chuyên cung cấp máy nén khí công nghiệp nội địa Nhật Bản — cũ và mới. Hitachi, Kobelco, Airman, Iwata... Đảm bảo hiệu suất tối đa, tiết kiệm điện năng, dịch vụ hậu mãi chu đáo.',
+                ".hero-btn-primary": '<i class="fa-solid fa-cart-shopping"></i> Xem Sản Phẩm',
+                ".hero-btn-outline": '<i class="fa-solid fa-phone"></i> Gọi Tư Vấn Ngay',
+                ".about-content p:nth-of-type(1)": 'Khai trương từ năm 2000 và tọa lạc tại trung tâm công nghiệp Bình Dương (An Phú, Thuận An), <strong>Công Ty TNHH Thịnh Phát</strong> tự hào là một trong những đơn vị uy tín nhất trong lĩnh vực phân phối, lắp đặt và bảo trì hệ thống máy nén khí công nghiệp.',
+                ".about-content p:nth-of-type(2)": 'Chúng tôi chuyên cung cấp các dòng máy nén khí nội địa Nhật Bản chất lượng cao (cả cũ và mới) từ các thương hiệu nổi tiếng: Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki... đáp ứng mọi quy mô sản xuất.',
+                ".wizard-step:nth-child(2) h3": 'Bước 1: Lĩnh vực / Mục đích sử dụng khí nén?',
+                ".wizard-step:nth-child(2) .step-desc": 'Loại khí nén cần sử dụng quyết định việc bạn cần mua dòng máy có dầu hay không dầu.',
+                ".wizard-step:nth-child(3) h3": 'Bước 2: Quy mô thiết bị sử dụng khí trong xưởng?',
+                ".wizard-step:nth-child(3) .step-desc": 'Số lượng và loại thiết bị tiêu thụ khí nén quyết định công suất (HP / kW) phù hợp.',
+                ".wizard-step:nth-child(4) h3": 'Bước 3: Ưu tiên vận hành của doanh nghiệp?',
+                ".wizard-step:nth-child(4) .step-desc": 'Lựa chọn phương thức điều khiển giúp tối ưu hóa chi phí điện năng hoặc chi phí đầu tư.',
+                ".contact-title": 'Liên Hệ Ngay Với Chúng Tôi',
+                ".contact-desc": 'Nhận tư vấn giải pháp khí nén miễn phí và báo giá nhanh nhất.',
+                ".contact-form h3": 'Gửi Yêu Cầu Báo Giá',
+                ".contact-form p": 'Điền thông tin bên dưới, chúng tôi sẽ phản hồi trong 30 phút.',
+                ".contact-form label[for='name']": 'Họ và tên *',
+                ".contact-form label[for='phone']": 'Số điện thoại *',
+                ".contact-form label[for='email']": 'Email',
+                ".contact-form label[for='company']": 'Công ty',
+                ".contact-form label[for='product-select']": 'Sản phẩm quan tâm',
+                ".contact-form label[for='message']": 'Nội dung tin nhắn *',
+                ".contact-btn-submit": 'Gửi Yêu Cầu Báo Giá <i class="fa-solid fa-paper-plane"></i>',
+                ".footer-bottom p": '© 2026 Công Ty TNHH Thịnh Phát. Bảo lưu mọi quyền.'
+            },
+            en: {
+                ".hero-badge": '<i class="fa-solid fa-medal"></i> TRUSTED PARTNER FOR EVERY BUSINESS',
+                ".hero-title": 'Comprehensive & Durable <span>Air Compressor</span> Solutions',
+                ".hero-desc": 'Thinh Phat Co., Ltd specializes in supplying new and used Japanese domestic industrial air compressors: Hitachi, Kobelco, Airman, Iwata... Ensuring maximum efficiency, electricity saving, and professional support.',
+                ".hero-btn-primary": '<i class="fa-solid fa-cart-shopping"></i> View Products',
+                ".hero-btn-outline": '<i class="fa-solid fa-phone"></i> Call For Consultation',
+                ".about-content p:nth-of-type(1)": 'Opened in 2000 and located in the industrial center of Binh Duong (An Phu, Thuan An), <strong>Thinh Phat Co., Ltd</strong> is proud to be one of the most prestigious units in distributing, installing, and maintaining industrial air compressor systems.',
+                ".about-content p:nth-of-type(2)": 'We specialize in providing high-quality Japanese domestic air compressors (both used and new) from famous brands: Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki... meeting all production scales.',
+                ".wizard-step:nth-child(2) h3": 'Step 1: Industry / Application of Compressed Air?',
+                ".wizard-step:nth-child(2) .step-desc": 'The type of compressed air determines whether you need to buy an oiled or oil-free machine.',
+                ".wizard-step:nth-child(3) h3": 'Step 2: Equipment Scale in Your Workshop?',
+                ".wizard-step:nth-child(3) .step-desc": 'The number and type of air consumption devices determine the appropriate capacity (HP / kW).',
+                ".wizard-step:nth-child(4) h3": 'Step 3: Business Operation Priority?',
+                ".wizard-step:nth-child(4) .step-desc": 'Choosing the control method helps optimize electricity costs or initial investment costs.',
+                ".contact-title": 'Contact Us Now',
+                ".contact-desc": 'Get free air compressor solutions advice and the fastest quote.',
+                ".contact-form h3": 'Request a Price Quote',
+                ".contact-form p": 'Fill in the form below, we will reply within 30 minutes.',
+                ".contact-form label[for='name']": 'Full name *',
+                ".contact-form label[for='phone']": 'Phone number *',
+                ".contact-form label[for='email']": 'Email',
+                ".contact-form label[for='company']": 'Company',
+                ".contact-form label[for='product-select']": 'Product of interest',
+                ".contact-form label[for='message']": 'Message content *',
+                ".contact-btn-submit": 'Send Quote Request <i class="fa-solid fa-paper-plane"></i>',
+                ".footer-bottom p": '© 2026 Thinh Phat Co., Ltd. All rights reserved.'
+            },
+            zh: {
+                ".hero-badge": '<i class="fa-solid fa-medal"></i> 值得信赖的合作伙伴',
+                ".hero-title": '全面且耐用的 <span>空气压缩机</span> 解决方案',
+                ".hero-desc": '盛发有限公司专业供应全新及二手日本本土工业空压机：日立、神钢、北越、岩田... 确保最大运行效率、省电并提供专业的技术服务。',
+                ".hero-btn-primary": '<i class="fa-solid fa-cart-shopping"></i> 查看产品',
+                ".hero-btn-outline": '<i class="fa-solid fa-phone"></i> 拨打热线咨询',
+                ".about-content p:nth-of-type(1)": '自2000年在平阳工业中心（安富，顺安）开业以来，<strong>盛发有限公司</strong>非常荣幸能成为工业空压机系统分销、安装与维护领域最负盛名的单位之一。',
+                ".about-content p:nth-of-type(2)": '我们专业提供来自日立、神钢、北越、岩田、三井等著名品牌的日本本土高品质空压机（二手及全新），满足各种生产规模的需求。',
+                ".wizard-step:nth-child(2) h3": '步骤 1：空气压缩机的使用领域/目的？',
+                ".wizard-step:nth-child(2) .step-desc": '所需压缩空气 of 类型决定了您需要购买有油还是无油空压机。',
+                ".wizard-step:nth-child(3) h3": '步骤 2：车间用气设备的规模？',
+                ".wizard-step:nth-child(3) .step-desc": '用气设备的数量和类型决定了所需的合适功率（HP / kW）。',
+                ".wizard-step:nth-child(4) h3": '步骤 3：企业运营优先考虑的因素？',
+                ".wizard-step:nth-child(4) .step-desc": '选择控制方式有助于优化电费成本或初始投资成本。',
+                ".contact-title": '立即联系我们',
+                ".contact-desc": '获取免费的空气压缩机解决方案建议和最快的报价。',
+                ".contact-form h3": '获取产品报价单',
+                ".contact-form p": '请填写以下信息，我们将在30分钟内给您答复。',
+                ".contact-form label[for='name']": '您的姓名 *',
+                ".contact-form label[for='phone']": '电话号码 *',
+                ".contact-form label[for='email']": '电子邮件',
+                ".contact-form label[for='company']": '公司名称',
+                ".contact-form label[for='product-select']": '您感兴趣的产品',
+                ".contact-form label[for='message']": '咨询留言内容 *',
+                ".contact-btn-submit": '提交报价申请 <i class="fa-solid fa-paper-plane"></i>',
+                ".footer-bottom p": '© 2026 盛发有限公司。保留所有权利。'
+            }
+        };
+
+        const listTranslations = {
+            vi: {
+                ".stat-item .stat-label": ["Năm Kinh Nghiệm", "Khách Hàng Hài Lòng", "Thiết Bị Sẵn Kho", "Hỗ Trợ Kỹ Thuật"],
+                ".highlight-item p": ["Chất lượng Nhật Bản", "Giá cả cạnh tranh", "Bảo hành dài hạn", "Giao hàng toàn quốc"],
+                ".timeline-item .timeline-content h4": ["Khai Trương", "Trực Tiếp Nhập Khẩu", "Cung Cấp KCN", "Trọn Gói Chuyên Nghiệp", "Nâng Tầm Dịch Vụ"],
+                ".timeline-item .timeline-content p": [
+                    "Mở cơ sở đầu tiên tại Bình Dương, chuyên sửa chữa máy nén piston Nhật bãi.",
+                    "Nhập trực tiếp máy trục vít Hitachi, Kobelco nghĩa địa chất lượng cao.",
+                    "Lắp đặt hệ thống khí nén cho hàng trăm nhà xưởng lớn tại VSIP, Sóng Thần...",
+                    "Đạt cột mốc 20 năm, mở rộng dịch vụ lắp đặt đường ống dẫn khí nén chuyên nghiệp.",
+                    "Kỷ niệm 26 năm uy tín, cam kết dịch vụ bảo trì 24/7 và chuyển đổi số phục vụ tốt nhất."
+                ],
+                ".wizard-option h4": [
+                    "Sản xuất công nghiệp chung", "Y tế, Dược phẩm, Thực phẩm",
+                    "Xưởng quy mô nhỏ", "Xưởng quy mô vừa", "Xưởng lớn / Khu công nghiệp",
+                    "Tiết kiệm điện năng tối đa", "Tối ưu chi phí đầu tư ban đầu"
+                ],
+                ".wizard-option p": [
+                    "Cơ khí chế tạo, sửa xe, phun sơn, bao bì giấy, dệt may...",
+                    "Nha khoa, chế biến thực phẩm, đóng gói thuốc, linh kiện điện tử...",
+                    "Dưới 15 HP (11 kW) thích hợp các xưởng sản xuất nhỏ.",
+                    "15 - 50 HP (11 - 37 kW) phù hợp quy mô sản xuất vừa.",
+                    "Trên 50 HP (37 kW) đáp ứng nhu cầu sản xuất liên tục.",
+                    "Trang bị biến tần (Inverter) giúp tiết kiệm từ 30% đến 40% điện năng.",
+                    "Máy nén khí thường, hoạt động bền bỉ, chi phí bảo trì thấp."
+                ],
+                ".wizard-option .option-badge": [
+                    "Khuyên dùng: Có Dầu", "Bắt buộc: Không Dầu",
+                    "Chọn", "Chọn", "Chọn",
+                    "Hiệu quả cao", "Giá tốt"
+                ],
+                ".product-detail-link": [
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "Xem thông số kỹ thuật <i class=\"fa-solid fa-arrow-right\"></i>"
+                ],
+                ".product-contact": [
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Hỏi Giá Zalo"
+                ],
+                ".product-price": ["Liên hệ", "Liên hệ", "Liên hệ", "Liên hệ", "Liên hệ", "Liên hệ"],
+                ".service-card h3": ["Bảo Dưỡng & Sửa Chữa", "Cho Thuê Máy Nén Khí", "Thiết Kế & Lắp Đặt"],
+                ".service-card p": [
+                    "Dịch vụ bảo trì định kỳ, sửa chữa máy nén khí trục vít, piston chuyên nghiệp tại xưởng và tận nơi nhà máy.",
+                    "Cung cấp máy nén khí cho thuê đa dạng công suất từ 10HP - 150HP, phục vụ ngắn hạn và dài hạn giá ưu đãi.",
+                    "Tư vấn, thiết kế bản vẽ và thi công hệ thống đường ống dẫn khí nén nhà xưởng công nghiệp đạt chuẩn an toàn."
+                ]
+            },
+            en: {
+                ".stat-item .stat-label": ["Years Experience", "Happy Customers", "Ready In Stock", "Tech Support"],
+                ".highlight-item p": ["Japanese Quality", "Competitive Price", "Long Warranty", "Nationwide Delivery"],
+                ".timeline-item .timeline-content h4": ["Grand Opening", "Direct Import", "Industrial Parks", "Turnkey Solution", "Service Upgrade"],
+                ".timeline-item .timeline-content p": [
+                    "Opened first workshop in Binh Duong, specializing in repairing Japanese piston compressors.",
+                    "Directly imported high quality used screw compressors from Hitachi, Kobelco.",
+                    "Installed air systems for hundreds of factories in VSIP, Song Than...",
+                    "Reached 20-year milestone, expanded to professional air pipeline installation services.",
+                    "Celebrating 26 years of trust, committing to 24/7 maintenance and digital services."
+                ],
+                ".wizard-option h4": [
+                    "General Industry", "Medical, Pharma, Food",
+                    "Small Scale Workshop", "Medium Scale Workshop", "Large Scale / Industrial",
+                    "Max Electricity Saving", "Optimize Initial Cost"
+                ],
+                ".wizard-option p": [
+                    "Machinery, car repair, spray painting, paper packaging, textile...",
+                    "Dental, food processing, drug packaging, electronic components...",
+                    "Under 15 HP (11 kW) suitable for small production shops.",
+                    "15 - 50 HP (11 - 37 kW) suitable for medium scale production.",
+                    "Over 50 HP (37 kW) meeting continuous production needs.",
+                    "Equipped with Inverter to save 30% to 40% of electricity.",
+                    "Standard air compressor, highly durable, low maintenance cost."
+                ],
+                ".wizard-option .option-badge": [
+                    "Oiled Recommended", "Oil-Free Required",
+                    "Select", "Select", "Select",
+                    "High Efficiency", "Good Price"
+                ],
+                ".product-detail-link": [
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "View Specifications <i class=\"fa-solid fa-arrow-right\"></i>"
+                ],
+                ".product-contact": [
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Quote Zalo"
+                ],
+                ".product-price": ["Contact", "Contact", "Contact", "Contact", "Contact", "Contact"],
+                ".service-card h3": ["Maintenance & Repair", "Air Compressor Rental", "Design & Installation"],
+                ".service-card p": [
+                    "Periodic maintenance and professional repair of screw and piston compressors at workshop and on-site.",
+                    "Providing rental air compressors from 10HP to 150HP for short-term and long-term at preferential prices.",
+                    "Consulting, drawing design and construction of industrial factory compressed air piping systems."
+                ]
+            },
+            zh: {
+                ".stat-item .stat-label": ["年行业经验", "位客户好评", "台现货储备", "天技术支持"],
+                ".highlight-item p": ["日本原装品质", "最具竞争价格", "提供长期保修", "全国快速配送"],
+                ".timeline-item .timeline-content h4": ["盛大开业", "直接进口", "工业区供货", "一站式安装", "服务再升级"],
+                ".timeline-item .timeline-content p": [
+                    "在平阳开设第一家工坊，专业维修日本二手活塞式空压机。",
+                    "直接进口日立、神钢等日本高品质二手螺杆式空压机。",
+                    "为VSIP、神浪等工业区的数百家大型工厂安装气路系统。",
+                    "迎来26周年里程碑，扩展到专业的工业空压机管道安装设计。",
+                    "庆祝26载信誉，承诺提供24/7全天候快捷售后及数字化服务。"
+                ],
+                ".wizard-option h4": [
+                    "普通工业生产", "医疗、制药、食品",
+                    "小型规模车间", "中型规模车间", "大型工业厂房",
+                    "最大化节省电费", "优化初始投资成本"
+                ],
+                ".wizard-option p": [
+                    "机械制造、汽车维修、喷漆、纸箱包装、纺织印染...",
+                    "牙科诊所、食品加工、药品包装、电子洁净车间...",
+                    "15 HP (11 kW) 以下，适合小型手工作坊或商用。",
+                    "15 - 50 HP (11 - 37 kW)，适合中型制造企业。",
+                    "50 HP (37 kW) 以上，满足工厂24小时连续用气。",
+                    "配备变频器（Inverter），可节约 30% 至 40% 的电费。",
+                    "普通定频空压机，运行稳定，配件便宜，维护成本低。"
+                ],
+                ".wizard-option .option-badge": [
+                    "推荐微油机", "强力推荐无油机",
+                    "选择", "选择", "选择",
+                    "高效节能", "超高性价比"
+                ],
+                ".product-detail-link": [
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>",
+                    "查看规格参数 <i class=\"fa-solid fa-arrow-right\"></i>"
+                ],
+                ".product-contact": [
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价",
+                    "<i class=\"fa-solid fa-comment-dots\"></i> Zalo询价"
+                ],
+                ".product-price": ["联系我们", "联系我们", "联系我们", "联系我们", "联系我们", "联系我们"],
+                ".service-card h3": ["保养与专业维修", "工业空压机租赁", "系统设计与安装"],
+                ".service-card p": [
+                    "定期维护保养服务，厂内及现场快捷维修螺杆式和活塞式空气压缩机设备。",
+                    "提供10HP至150HP多种功率 of 空压机租赁服务，短期或长期租赁均可，价格优惠。",
+                    "提供工厂压缩空气管道布局规划、图纸设计及高标准安全施工一站式服务。"
+                ]
+            }
+        };
+
+        const placeholderTranslations = {
+            vi: {
+                "#name": "Nhập tên của bạn",
+                "#phone": "Nhập số điện thoại",
+                "#email": "email@congty.vn",
+                "#company": "Tên công ty",
+                "#message": "Nội dung yêu cầu báo giá hoặc tư vấn kỹ thuật..."
+            },
+            en: {
+                "#name": "Enter your name",
+                "#phone": "Enter your phone number",
+                "#email": "email@company.com",
+                "#company": "Company name",
+                "#message": "Quote request or technical advice content..."
+            },
+            zh: {
+                "#name": "请输入您的姓名",
+                "#phone": "请输入您的电话号码",
+                "#email": "email@company.com",
+                "#company": "公司名称",
+                "#message": "您的询价或技术咨询详细内容..."
+            }
+        };
+
+        const wizard_recommendations = {
+            vi: {
+                r1: {
+                    title: "Máy Nén Piston Không Dầu Anest Iwata / Hitachi (2HP - 5HP)",
+                    features: [
+                        "100% Khí nén siêu sạch không dầu bảo vệ tối đa sức khỏe & máy móc y khoa.",
+                        "Thiết kế gọn gàng, đầu nén bền bỉ đặc trưng từ thương hiệu Nhật.",
+                        "Tiếng ồn siêu nhỏ, thích hợp phòng khám nha khoa hoặc đóng gói thực phẩm mini."
+                    ]
+                },
+                r2: {
+                    title: "Máy Nén Trục Vít Không Dầu Anest Iwata / Hitachi (15HP - 30HP)",
+                    features: [
+                        "Đã tích hợp sẵn máy sấy khí giúp cấp nguồn khí khô sạch tinh khiết tuyệt đối.",
+                        "Khả năng vận hành bền bỉ liên tục phục vụ cho sản xuất.",
+                        "Đề xuất dòng có Biến tần (Inverter) giúp tiết kiệm điện tối ưu hơn."
+                    ]
+                },
+                r3: {
+                    title: "Hệ thống Trục Vít Không Dầu Hitachi / Kobelco (50HP - 100HP)",
+                    features: [
+                        "Công suất lớn phục vụ dây chuyền chế biến thực phẩm, nhà máy dược tự động hóa.",
+                        "Nên bố trí 2 máy luân phiên để đảm bảo không bị gián đoạn nguồn khí nén.",
+                        "Tích hợp hệ thống sấy tách nước độc lập hiệu suất cao."
+                    ]
+                },
+                r4: {
+                    title: "Máy Nén Khí Piston Hitachi / Iwata nội địa Nhật (5HP - 10HP)",
+                    features: [
+                        "Cấu tạo ngập dầu cực bền, rất dễ dàng bảo trì sửa chữa với linh kiện sẵn có.",
+                        "Mức chi phí đầu tư vô cùng hợp lý cho xưởng mộc, gara ô tô, phun sơn.",
+                        "Vận hành êm ái hơn hẳn các dòng máy rẻ tiền ngoài thị trường."
+                    ]
+                },
+                r5: {
+                    title: "Máy nén trục vít Kobelco / Airman 30HP - 50HP Inverter",
+                    features: [
+                        "Trang bị biến tần giúp kiểm soát dòng khởi động, tiết kiệm tới 30-40% tiền điện.",
+                        "Tích hợp bộ sấy khí tách ẩm bảo vệ các thiết bị cơ khí, súng phun sơn.",
+                        "Khung vỏ cách âm chuyên nghiệp, giảm tối đa độ ồn xưởng sản xuất."
+                    ]
+                },
+                r6: {
+                    title: "Máy nén trục vít Kobelco / Airman 30HP - 50HP Dây Đai",
+                    features: [
+                        "Vận hành đơn giản, độ bền cơ học cao, chi phí linh kiện bảo dưỡng rất rẻ.",
+                        "Tích hợp bộ sấy khí tách ẩm bảo vệ các thiết bị cơ khí, súng phun sơn.",
+                        "Khung vỏ cách âm chuyên nghiệp, giảm tối đa độ ồn xưởng sản xuất."
+                    ]
+                },
+                r7: {
+                    title: "Máy nén trục vít Mitsui Seiki / Hitachi 75HP - 100HP Inverter",
+                    features: [
+                        "Dòng máy công nghiệp tải nặng chuyên dụng cho nhà máy quy mô công nghiệp lớn.",
+                        "Đầu nén hiệu suất cao, tiết kiệm vượt trội với biến tần điều chỉnh lưu lượng.",
+                        "Bảng điều khiển số thông minh tự ngắt bảo vệ khi xảy ra quá tải."
+                    ]
+                },
+                r8: {
+                    title: "Máy nén trục vít Mitsui Seiki / Hitachi 75HP - 100HP Khớp Nối",
+                    features: [
+                        "Dòng máy công nghiệp tải nặng chuyên dụng cho nhà máy quy mô công nghiệp lớn.",
+                        "Đầu nén hiệu suất cao, giàn giải nhiệt lớn giúp hoạt động liên tục tốt dưới trời nắng.",
+                        "Bảng điều khiển số thông minh tự ngắt bảo vệ khi xảy ra quá tải."
+                    ]
+                }
+            },
+            en: {
+                r1: {
+                    title: "Oil-Free Piston Air Compressor Anest Iwata / Hitachi (2HP - 5HP)",
+                    features: [
+                        "100% clean oil-free compressed air to protect health & medical devices.",
+                        "Compact design, highly durable compressor head from Japan.",
+                        "Very low noise, perfect for dental clinics or food packaging."
+                    ]
+                },
+                r2: {
+                    title: "Oil-Free Screw Air Compressor Anest Iwata / Hitachi (15HP - 30HP)",
+                    features: [
+                        "Integrated air dryer ensures completely dry and pure compressed air.",
+                        "Heavy duty continuous operation for manufacturing processes.",
+                        "Inverter recommended to optimize electricity savings."
+                    ]
+                },
+                r3: {
+                    title: "Oil-Free Screw Air Compressor System Hitachi / Kobelco (50HP - 100HP)",
+                    features: [
+                        "High capacity for food processing lines & pharma automation factories.",
+                        "Dual machine backup setup recommended for zero production downtime.",
+                        "High-efficiency water separation dryer integrated."
+                    ]
+                },
+                r4: {
+                    title: "Oiled Piston Air Compressor Hitachi / Iwata Japan (5HP - 10HP)",
+                    features: [
+                        "Super durable oiled structure, very easy to maintain with local parts.",
+                        "Extremely reasonable budget for woodworking, garage, painting shops.",
+                        "Operates much quieter than cheap low-quality alternatives."
+                    ]
+                },
+                r5: {
+                    title: "Oiled Screw Compressor Kobelco / Airman 30HP - 50HP Inverter",
+                    features: [
+                        "Equipped with Inverter to control startup current, saving 30-40% of electricity.",
+                        "Integrated air dryer protects mechanical tools & spray paint guns.",
+                        "Professional sound-insulating canopy, minimizing noise in the workshop."
+                    ]
+                },
+                r6: {
+                    title: "Oiled Screw Compressor Kobelco / Airman 30HP - 50HP Belt Drive",
+                    features: [
+                        "Simple operation, high mechanical durability, very cheap maintenance parts.",
+                        "Integrated air dryer protects mechanical tools & spray paint guns.",
+                        "Professional sound-insulating canopy, minimizing noise in the workshop."
+                    ]
+                },
+                r7: {
+                    title: "Oiled Screw Compressor Mitsui Seiki / Hitachi 75HP - 100HP Inverter",
+                    features: [
+                        "Heavy-duty industrial air compressor for large manufacturing plants.",
+                        "High performance air-end, outstanding savings with flow-adjusting inverter.",
+                        "Smart digital controller with auto-shutdown protection under overload."
+                    ]
+                },
+                r8: {
+                    title: "Oiled Screw Compressor Mitsui Seiki / Hitachi 75HP - 100HP Direct Coupling",
+                    features: [
+                        "Heavy-duty industrial air compressor for large manufacturing plants.",
+                        "High efficiency air-end, large radiator for continuous operation in hot weather.",
+                        "Smart digital controller with auto-shutdown protection under overload."
+                    ]
+                }
+            },
+            zh: {
+                r1: {
+                    title: "阿耐思特岩田 / 日立无油活塞式空压机 (2HP - 5HP)",
+                    features: [
+                        "100% 洁净无油压缩空气，保障健康及医疗牙科设备的用气安全。",
+                        "设计精巧，日本原装高耐用性压缩机头。",
+                        "极静音运行，非常适合牙医诊所或微型食品包装线。"
+                    ]
+                },
+                r2: {
+                    title: "阿耐思特岩田 / 日立无油螺杆式空压机 (15HP - 30HP)",
+                    features: [
+                        "内置高效冷干机，输出洁净、绝对干燥的优质气源。",
+                        "为中型制造及实验室提供高稳定性连续用气。",
+                        "推荐选择变频（Inverter）款，最大化节省日常用电。"
+                    ]
+                },
+                r3: {
+                    title: "日立 / 神钢工业级无油螺杆空压机系统 (50HP - 100HP)",
+                    features: [
+                        "超大用气量设计，专为自动食品生产线、药厂和高精尖电子厂设计。",
+                        "推荐双机备份、轮流交替运行，确保生产不间断。",
+                        "集成高效率水分离干燥及净化过滤系统。"
+                    ]
+                },
+                r4: {
+                    title: "日立 / 岩田日本原装微油活塞空压机 (5HP - 10HP)",
+                    features: [
+                        "经典微油润滑结构，配件极易获取，维护保养极其简单便捷。",
+                        "木工家具、汽车修理厂、喷漆钣金行的高性价比首选。",
+                        "运行声音远低于市面上廉价低质品牌。"
+                    ]
+                },
+                r5: {
+                    title: "神钢 / 北越 30HP - 50HP 变频螺杆式空压机",
+                    features: [
+                        "配备变频器控制启动电流，避开用电高峰，综合省电达30-40%。",
+                        "集成式冷干机，去除压缩空气中的水汽，保护气动工具及喷枪。",
+                        "工业级静音外壳，大幅降低厂房工作噪音。"
+                    ]
+                },
+                r6: {
+                    title: "神钢 / 北越 30HP - 50HP 皮带传动螺杆式空压机",
+                    features: [
+                        "操作极简，机械结构坚固，常规更换耗材成本极低。",
+                        "集成式冷干机，去除压缩空气中的水汽，保护气动工具及喷枪。",
+                        "工业级静音外壳，大幅降低厂房工作噪音。"
+                    ]
+                },
+                r7: {
+                    title: "三井单螺杆 / 日立 75HP - 100HP 变频螺杆式空压机",
+                    features: [
+                        "专为大型工厂全负荷、重工业生产设计的空压机主机。",
+                        "排气量大，高能效机头，匹配智能变频系统节省用电。",
+                        "微电脑智能液晶面板，具备缺相、超温、过载自动停机保护。"
+                    ]
+                },
+                r8: {
+                    title: "三井单螺杆 / 日立 75HP - 100HP 直联联轴器螺杆空压机",
+                    features: [
+                        "专为大型工厂全负荷、重工业生产设计的空压机主机。",
+                        "高效率直联传动，配置大面积散热器，酷暑高温下亦可24小时稳定输出。",
+                        "微电脑智能液晶面板，具备缺相、超温、过载自动停机保护。"
+                    ]
+                }
+            }
+        };
+
+        // ===== Language Translation Changer =====
+        function changeLanguage(lang) {
+            document.body.setAttribute('data-lang', lang);
+            localStorage.setItem('lang', lang);
+            
+            // Translate data-i18n items
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+
+            // Translate data-i18n-placeholder items
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.placeholder = i18n[lang][key];
+                }
+            });
+
+            // Translate by Selector Map
+            const selectorMap = selectorTranslations[lang];
+            if (selectorMap) {
+                for (const selector in selectorMap) {
+                    const el = document.querySelector(selector);
+                    if (el) {
+                        el.innerHTML = selectorMap[selector];
+                    }
+                }
+            }
+            
+            // Translate by List Map
+            const listMap = listTranslations[lang];
+            if (listMap) {
+                for (const selector in listMap) {
+                    const els = document.querySelectorAll(selector);
+                    const translations = listMap[selector];
+                    els.forEach((el, idx) => {
+                        if (translations[idx]) {
+                            el.innerHTML = translations[idx];
+                        }
+                    });
+                }
+            }
+
+            // Translate placeholders
+            const placeholderMap = placeholderTranslations[lang];
+            if (placeholderMap) {
+                for (const selector in placeholderMap) {
+                    const el = document.querySelector(selector);
+                    if (el) {
+                        el.placeholder = placeholderMap[selector];
+                    }
+                }
+            }
+
+            // Re-render recommendation if wizard is at result screen
+            const container = document.getElementById('wizardResultDetails');
+            if (container && container.innerHTML !== "" && wizardAnswers.industry) {
+                showRecommendation();
+            }
+        }
+
+        // ===== Theme and Language Initialization =====
+        window.addEventListener('DOMContentLoaded', () => {
+            // Theme setup
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                document.body.classList.remove('dark-theme');
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const isDark = document.body.classList.contains('dark-theme');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeToggleBtn.innerHTML = isDark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+            });
+            
+            // Language setup
+            const savedLang = localStorage.getItem('lang') || 'vi';
+            changeLanguage(savedLang);
+        });
 
         // ===== Smooth reveal on page load =====
         window.addEventListener('load', () => {

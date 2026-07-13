@@ -1263,23 +1263,58 @@
         // ===== Form Submit Handler =====
         function handleFormSubmit(event) {
             event.preventDefault();
-            const btn = event.target.querySelector('button[type="submit"]');
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
             btn.disabled = true;
 
-            setTimeout(() => {
+            const formData = {
+                name: form.querySelector('#name').value,
+                phone: form.querySelector('#phone').value,
+                email: form.querySelector('#email').value,
+                company: form.querySelector('#company').value,
+                product: form.querySelector('#product-select').value,
+                message: form.querySelector('#message').value
+            };
+
+            // Send email automatically using formsubmit.co via fetch
+            fetch("https://formsubmit.co/ajax/thinhphataircompressor@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "Yêu cầu báo giá mới từ Website Thịnh Phát",
+                    _captcha: "false",
+                    "Họ và tên": formData.name,
+                    "Số điện thoại": formData.phone,
+                    "Email": formData.email,
+                    "Công ty": formData.company,
+                    "Sản phẩm quan tâm": formData.product,
+                    "Nội dung": formData.message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã gửi thành công!';
                 btn.style.background = 'var(--success)';
 
                 setTimeout(() => {
-                    alert('Cảm ơn bạn đã gửi yêu cầu!\n\nAnh Xuân (0961 095 247) sẽ liên hệ lại với bạn trong thời gian sớm nhất.');
-                    event.target.reset();
+                    alert('Cảm ơn bạn đã gửi yêu cầu!\n\nYêu cầu báo giá đã được gửi tự động tới email doanh nghiệp. Anh Xuân sẽ liên hệ lại với bạn trong thời gian sớm nhất.');
+                    form.reset();
                     btn.innerHTML = originalText;
                     btn.style.background = '';
                     btn.disabled = false;
                 }, 1000);
-            }, 1500);
+            })
+            .catch(err => {
+                console.error("Error sending email:", err);
+                btn.innerHTML = 'Thử lại';
+                btn.disabled = false;
+                alert('Có lỗi xảy ra khi gửi yêu cầu. Xin vui lòng liên hệ hotline trực tiếp.');
+            });
         }
 
         // ===== Switch Image Function =====

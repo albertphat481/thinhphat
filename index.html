@@ -1011,32 +1011,29 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Zalo Inquiry Modal -->
+        <!-- Zalo Inquiry Modal -->
     <div id="zaloModal" class="zalo-modal">
         <div class="zalo-modal-content">
             <span class="zalo-modal-close" onclick="closeZaloModal()">&times;</span>
             <div class="zalo-modal-header">
                 <div class="zalo-modal-logo-css">Zalo</div>
-                <h3>Đang Kết Nối Zalo...</h3>
+                <h3 data-i18n="zalo-modal-title">Đang Kết Nối Zalo...</h3>
             </div>
             <div class="zalo-modal-body">
-                <p>Tin nhắn hỏi giá cho sản phẩm <strong id="zaloProductName"></strong> đã được tự động sao chép vào bộ nhớ tạm của bạn.</p>
-                <div class="zalo-message-box">
+                <p id="zaloModalDesc">Tin nhắn hỏi giá cho sản phẩm <strong id="zaloProductName"></strong> đã được tự động sao chép vào bộ nhớ tạm của bạn.</p>
+                <div class="zalo-message-box" style="position: relative;">
                     <p id="zaloMessageText"></p>
+                    <button onclick="copyZaloTextDirectly()" class="zalo-copy-btn" title="Sao chép lại" style="position: absolute; right: 0.75rem; top: 0.75rem; background: transparent; border: none; color: #64748b; font-size: 1rem; cursor: pointer; transition: var(--transition); padding: 0.25rem 0.5rem; border-radius: 4px;">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
                 </div>
-                <p class="zalo-hint"><i class="fa-solid fa-circle-info"></i> Hãy <strong>Dán (Paste)</strong> tin nhắn này vào ô chat Zalo với anh Xuân để gửi yêu cầu nhé!</p>
-                <div class="zalo-progress-bar">
-                    <div class="zalo-progress-fill"></div>
-                </div>
-                <a href="#" id="zaloRedirectBtn" target="_blank" class="zalo-btn-action">
-                    <i class="fa-solid fa-paper-plane"></i> Mở Zalo và Gửi Ngay
+                <p class="zalo-hint" id="zaloModalHint"><i class="fa-solid fa-circle-info"></i> Hãy <strong>Dán (Paste)</strong> tin nhắn này vào ô chat Zalo với anh Xuân để gửi yêu cầu nhé!</p>
+                <a href="#" id="zaloRedirectBtn" target="_blank" class="zalo-btn-action" onclick="closeZaloModal()">
+                    <i class="fa-solid fa-paper-plane"></i> Xác Nhận & Mở Zalo
                 </a>
             </div>
         </div>
     </div>
-
-
-
     <!-- Product Quick View Modal -->
     <div id="quickViewModal" class="qv-modal">
         <div class="qv-modal-content">
@@ -1639,35 +1636,20 @@
             const pNameEl = document.getElementById('zaloProductName');
             const msgEl = document.getElementById('zaloMessageText');
             const redirectBtn = document.getElementById('zaloRedirectBtn');
-            const progressFill = document.querySelector('.zalo-progress-fill');
             
             pNameEl.textContent = lang === 'en' ? "Smart Selector" : (lang === 'zh' ? "智能选型" : "Bộ Chọn Máy Nén Khí");
             msgEl.textContent = message;
             redirectBtn.href = `https://zalo.me/0961095247`;
             
             modal.classList.add('show');
-            
-            progressFill.style.transition = 'none';
-            progressFill.style.width = '0%';
-            
-            setTimeout(() => {
-                progressFill.style.transition = 'width 2.2s linear';
-                progressFill.style.width = '100%';
-            }, 50);
-            
-            zaloTimeout = setTimeout(() => {
-                window.open(`https://zalo.me/0961095247`, '_blank');
-            }, 2200);
         }
 
         // ===== Zalo Auto Message Inquiry & Redirect =====
-        let zaloTimeout;
         function contactZalo(productName) {
             const modal = document.getElementById('zaloModal');
             const pNameEl = document.getElementById('zaloProductName');
             const msgEl = document.getElementById('zaloMessageText');
             const redirectBtn = document.getElementById('zaloRedirectBtn');
-            const progressFill = document.querySelector('.zalo-progress-fill');
             
             const lang = localStorage.getItem('lang') || 'vi';
             
@@ -1693,30 +1675,27 @@
             
             // Open modal
             modal.classList.add('show');
-            
-            // Reset and trigger progress bar
-            progressFill.style.transition = 'none';
-            progressFill.style.width = '0%';
-            
-            setTimeout(() => {
-                progressFill.style.transition = 'width 2.2s linear';
-                progressFill.style.width = '100%';
-            }, 50);
-            
-            // Auto redirect after 2.2 seconds
-            zaloTimeout = setTimeout(() => {
-                window.open(`https://zalo.me/0961095247`, '_blank');
-            }, 2200);
+        }
+        
+        function copyZaloTextDirectly() {
+            const text = document.getElementById('zaloMessageText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.zalo-copy-btn');
+                const originalIcon = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check" style="color: var(--success);"></i>';
+                btn.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    btn.innerHTML = originalIcon;
+                    btn.style.pointerEvents = 'auto';
+                }, 1500);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
         }
         
         function closeZaloModal() {
             const modal = document.getElementById('zaloModal');
             modal.classList.remove('show');
-            clearTimeout(zaloTimeout);
-            
-            const progressFill = document.querySelector('.zalo-progress-fill');
-            progressFill.style.transition = 'none';
-            progressFill.style.width = '0%';
         }
         
         // Close modal when clicking outside contents
@@ -1756,7 +1735,8 @@
                 "filter-screw": "Máy Trục Vít",
                 "filter-used": "Nội Địa Cũ",
                 "filter-new": "Mới 100%",
-                "filter-parts": "Phụ Tùng"
+                "filter-parts": "Phụ Tùng",
+                "zalo-modal-title": "Đang kết nối Zalo..."
             },
             en: {
                 "nav-home": "Home",
@@ -1781,7 +1761,8 @@
                 "filter-screw": "Screw",
                 "filter-used": "Japanese Used",
                 "filter-new": "100% New",
-                "filter-parts": "Spare Parts"
+                "filter-parts": "Spare Parts",
+                "zalo-modal-title": "Connecting to Zalo..."
             },
             zh: {
                 "nav-home": "首页",
@@ -1806,7 +1787,8 @@
                 "filter-screw": "螺杆机",
                 "filter-used": "日本二手",
                 "filter-new": "全新原装",
-                "filter-parts": "配件耗材"
+                "filter-parts": "配件耗材",
+                "zalo-modal-title": "正在连接 Zalo..."
             }
         };
 
@@ -1836,7 +1818,10 @@
                 ".contact-form label[for='product-select']": 'Sản phẩm quan tâm',
                 ".contact-form label[for='message']": 'Nội dung tin nhắn *',
                 ".contact-btn-submit": 'Gửi Yêu Cầu Báo Giá <i class="fa-solid fa-paper-plane"></i>',
-                ".footer-bottom p": '© 2026 Công Ty TNHH Thịnh Phát. Bảo lưu mọi quyền.'
+                ".footer-bottom p": '© 2026 Công Ty TNHH Thịnh Phát. Bảo lưu mọi quyền.',
+                "#zaloModalDesc": 'Tin nhắn hỏi giá cho sản phẩm <strong id="zaloProductName"></strong> đã được tự động sao chép vào bộ nhớ tạm của bạn.',
+                "#zaloModalHint": '<i class="fa-solid fa-circle-info"></i> Hãy <strong>Dán (Paste)</strong> tin nhắn này vào ô chat Zalo với anh Xuân để gửi yêu cầu nhé!',
+                "#zaloRedirectBtn": '<i class="fa-solid fa-paper-plane"></i> Xác Nhận & Mở Zalo'
             },
             en: {
                 ".hero-badge": '<i class="fa-solid fa-medal"></i> TRUSTED PARTNER FOR EVERY BUSINESS',
@@ -1863,7 +1848,10 @@
                 ".contact-form label[for='product-select']": 'Product of interest',
                 ".contact-form label[for='message']": 'Message content *',
                 ".contact-btn-submit": 'Send Quote Request <i class="fa-solid fa-paper-plane"></i>',
-                ".footer-bottom p": '© 2026 Thinh Phat Co., Ltd. All rights reserved.'
+                ".footer-bottom p": '© 2026 Thinh Phat Co., Ltd. All rights reserved.',
+                "#zaloModalDesc": 'The inquiry message for product <strong id="zaloProductName"></strong> has been automatically copied to your clipboard.',
+                "#zaloModalHint": '<i class="fa-solid fa-circle-info"></i> Please <strong>Paste</strong> this message into the Zalo chat box with Mr. Xuan to send your inquiry!',
+                "#zaloRedirectBtn": '<i class="fa-solid fa-paper-plane"></i> Confirm & Open Zalo'
             },
             zh: {
                 ".hero-badge": '<i class="fa-solid fa-medal"></i> 值得信赖的合作伙伴',
@@ -1890,7 +1878,10 @@
                 ".contact-form label[for='product-select']": '您感兴趣的产品',
                 ".contact-form label[for='message']": '咨询留言内容 *',
                 ".contact-btn-submit": '提交报价申请 <i class="fa-solid fa-paper-plane"></i>',
-                ".footer-bottom p": '© 2026 盛发有限公司。保留所有权利。'
+                ".footer-bottom p": '© 2026 盛发有限公司。保留所有权利。',
+                "#zaloModalDesc": '产品 <strong id="zaloProductName"></strong> 的询价消息已自动复制到您的剪贴板。',
+                "#zaloModalHint": '<i class="fa-solid fa-circle-info"></i> 请将此消息 <strong>粘贴 (Paste)</strong> 到与宣经理的 Zalo 聊天框中发送！',
+                "#zaloRedirectBtn": '<i class="fa-solid fa-paper-plane"></i> 确认并打开 Zalo'
             }
         };
 

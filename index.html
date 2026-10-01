@@ -24,9 +24,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css?v=1.1">
+    <link rel="stylesheet" href="index.css?v=1.2">
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Top Bar -->
     <div class="top-bar">
@@ -1116,6 +1117,7 @@
         const header = document.getElementById('header');
         const backToTop = document.getElementById('backToTop');
 
+        const scrollProgress = document.getElementById('scrollProgress');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
                 header.classList.add('scrolled');
@@ -1124,6 +1126,11 @@
                 header.classList.remove('scrolled');
                 backToTop.classList.remove('visible');
             }
+            // Scroll progress bar
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
         });
 
         backToTop.addEventListener('click', () => {
@@ -1234,6 +1241,19 @@
 
         document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => {
             observer.observe(el);
+        });
+
+        // ===== Lazy Image Reveal =====
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    imgObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.product-img, .gallery-main img').forEach(img => {
+            imgObserver.observe(img);
         });
 
         // ===== Active Navigation Link on Scroll =====

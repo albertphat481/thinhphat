@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css?v=3.1">
+    <link rel="stylesheet" href="index.css?v=3.3">
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -37,6 +37,9 @@
                 <span><i class="fa-solid fa-clock"></i> T2-T6: 08:00–17:30 | T7: 08:00–12:00</span>
                 <span class="live-status-pill" style="margin-bottom:0; padding:0.2rem 0.65rem; font-size:0.72rem; display:inline-flex;">
                     <span class="live-status-dot"></span> Xưởng Sẵn Máy 24/7
+                </span>
+                <span class="live-status-pill" style="margin-bottom:0; padding:0.2rem 0.65rem; font-size:0.72rem; display:inline-flex; background:rgba(239,68,68,0.12); color:#ef4444; border-color:rgba(239,68,68,0.3);">
+                    <i class="fa-solid fa-shield-halved"></i> 100% Nội Địa Nhật • Nói Không Hàng Trung Quốc
                 </span>
             </div>
             <div class="top-bar-right">
@@ -109,24 +112,73 @@
         <div class="hero-gradient"></div>
         <div class="hero-particles"></div>
         <div class="container" style="position: relative; z-index: 10;">
-            <div class="hero-content animate">
-                <div class="live-status-pill"><span class="live-status-dot"></span> XƯỞNG BÌNH DƯƠNG SẴN SÀNG GIAO MÁY • HỖ TRỢ KỸ THUẬT 24/7</div>
-                <div class="hero-badge"><i class="fa-solid fa-medal"></i> ĐỐI TÁC TIN CẬY CHO MỌI DOANH NGHIỆP</div>
-                <h1 class="hero-title">Giải Pháp <span>Khí Nén</span> Toàn Diện & Bền Bỉ</h1>
-                <p class="hero-desc">Công ty TNHH Thịnh Phát chuyên cung cấp máy nén khí công nghiệp nội địa Nhật Bản — cũ và mới. Hitachi, Kobelco, Airman, Iwata... Đảm bảo hiệu suất tối đa, tiết kiệm điện năng, dịch vụ hậu mãi chu đáo.</p>
-                <div class="hero-actions">
-                    <a href="#products" class="hero-btn-primary">
-                        <i class="fa-solid fa-cart-shopping"></i> Xem Sản Phẩm
-                    </a>
-                    <a href="#roi-calculator" class="hero-btn-outline" style="border-color: #38bdf8; color: #38bdf8;">
-                        <i class="fa-solid fa-bolt"></i> Tính Tiết Kiệm Điện
-                    </a>
-                    <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="hero-btn-outline" style="border-color: #60a5fa; color: #60a5fa;">
-                        <i class="fa-brands fa-facebook"></i> Video Máy Fanpage
-                    </a>
-                    <a href="tel:0961095247" class="hero-btn-outline">
-                        <i class="fa-solid fa-phone"></i> Gọi 0961 095 247
-                    </a>
+            <div class="hero-grid">
+                <!-- Left Column: Primary Content -->
+                <div class="hero-content animate">
+                    <div class="live-status-pill"><span class="live-status-dot"></span> XƯỞNG BÌNH DƯƠNG SẴN SÀNG GIAO MÁY • HỖ TRỢ KỸ THUẬT 24/7</div>
+                    <div class="hero-badge"><i class="fa-solid fa-medal"></i> ĐỐI TÁC TIN CẬY CHO MỌI DOANH NGHIỆP</div>
+                    <h1 class="hero-title">Giải Pháp <span>Khí Nén</span> Toàn Diện & Bền Bỉ</h1>
+                    <p class="hero-desc">Công ty TNHH Thịnh Phát chuyên phân phối máy nén khí trục vít & piston nội địa Nhật Bản (Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki) — <strong>Tuyệt đối nói KHÔNG với máy Trung Quốc kém chất lượng</strong>. Máy nguyên bản 90-95%, siêu êm, tiết kiệm 30-40% điện năng, bảo hành tận nơi 12-24 tháng.</p>
+                    <div class="hero-actions">
+                        <a href="#products" class="hero-btn-primary">
+                            <i class="fa-solid fa-cart-shopping"></i> Xem Sản Phẩm
+                        </a>
+                        <a href="#japan-commitment" class="hero-btn-outline" style="border-color: #ef4444; color: #fca5a5;">
+                            <i class="fa-solid fa-shield-halved"></i> Cam Kết Máy Nhật
+                        </a>
+                        <a href="#roi-calculator" class="hero-btn-outline" style="border-color: #38bdf8; color: #38bdf8;">
+                            <i class="fa-solid fa-bolt"></i> Tiết Kiệm Điện ROI
+                        </a>
+                        <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="hero-btn-outline" style="border-color: #60a5fa; color: #60a5fa;">
+                            <i class="fa-brands fa-facebook"></i> Video Fanpage
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Premium Liquid Glass Showcase Card -->
+                <div class="hero-showcase animate-right">
+                    <div class="hero-glass-card">
+                        <div class="hgc-header">
+                            <span class="hgc-pill-japan"><i class="fa-solid fa-shield-halved"></i> 100% NỘI ĐỊA NHẬT BÃI</span>
+                            <span class="hgc-pill-live"><span class="live-dot-pulse"></span> THỬ TẢI TẠI KHO</span>
+                        </div>
+                        <div class="hgc-image-box">
+                            <img src="images/mitsui-z37-front.png" alt="Máy nén khí trục vít Nhật bãi Thịnh Phát" class="hgc-img">
+                            <div class="hgc-spec-badge">
+                                <span class="hgc-spec-val">IE3 Inverter</span>
+                                <span class="hgc-spec-lbl">Tiết Kiệm 35% Điện</span>
+                            </div>
+                        </div>
+                        <div class="hgc-body">
+                            <h3 class="hgc-title">Máy Nén Trục Vít Nhật Tuyển Chọn</h3>
+                            <p class="hgc-brands">Hitachi • Kobelco • Airman • Mitsui Seiki • Iwata</p>
+                            
+                            <div class="hgc-features">
+                                <div class="hgc-feat-item">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Đầu nén zin Nhật 90-95%, không xước trục</span>
+                                </div>
+                                <div class="hgc-feat-item">
+                                    <i class="fa-solid fa-ban" style="color:#ef4444;"></i>
+                                    <span>Tuyệt đối <strong>KHÔNG</strong> bán máy nhái Trung Quốc</span>
+                                </div>
+                                <div class="hgc-feat-item">
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                    <span>Bảo hành 12 - 24 tháng tận nơi tại Bình Dương</span>
+                                </div>
+                            </div>
+
+                            <div class="hgc-footer">
+                                <div class="hgc-price-lead">
+                                    <span class="hgc-price-label">Giá tham khảo từ:</span>
+                                    <span class="hgc-price-val">78.000.000 đ</span>
+                                </div>
+                                <a href="https://zalo.me/0961095247" target="_blank" class="hgc-cta-btn">
+                                    <i class="fa-solid fa-comment-dots"></i> Báo Giá Nhanh Zalo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,7 +211,7 @@
     <!-- Brands Marquee -->
     <div class="brands-section">
         <div class="container">
-            <div class="brands-title">Các thương hiệu nổi bật chúng tôi phân phối</div>
+            <div class="brands-title"><i class="fa-solid fa-certificate" style="color:var(--secondary);"></i> 100% Thương hiệu hàng đầu Nhật Bản — Cam kết không phân phối máy Trung Quốc</div>
         </div>
         <div class="marquee-wrapper">
             <div class="brands-track">
@@ -394,7 +446,7 @@
                 <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Tất Cả</button>
                 <button class="filter-btn" data-filter="piston" data-i18n="filter-piston">Máy Piston</button>
                 <button class="filter-btn" data-filter="trucvit" data-i18n="filter-screw">Máy Trục Vít</button>
-                <button class="filter-btn" data-filter="cu" data-i18n="filter-used">Nội Địa Cũ</button>
+                <button class="filter-btn" data-filter="cu" data-i18n="filter-used">Nội Địa Nhật</button>
                 <button class="filter-btn" data-filter="moi" data-i18n="filter-new">Mới 100%</button>
                 <button class="filter-btn" data-filter="phutung" data-i18n="filter-parts">Phụ Tùng</button>
             </div>
@@ -403,7 +455,7 @@
                 <!-- Product 1: Airman SMS22E-B -->
                 <div class="product-card animate" data-category="trucvit cu">
                     <div class="product-gallery">
-                        <span class="product-badge">Nội Địa Cũ</span>
+                        <span class="product-badge"><i class="fa-solid fa-shield-halved"></i> 100% Zin Nhật</span>
                         <div class="gallery-main">
                             <img src="images/airman-sms22e-front.jpg" alt="Airman SMS22E-B Mặt Trước" class="active">
                             <img src="images/airman-sms22e-inside.jpg" alt="Airman SMS22E-B Bên Trong">
@@ -423,7 +475,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> 78 - 95 Triệu</span>
+                                    <span class="product-price-sub">Zin Nhật • Tiết kiệm 65% so với máy mới</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p1')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -471,7 +526,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> 115 - 138 Triệu</span>
+                                    <span class="product-price-sub">Inverter IE3 • Sấy khí đồng bộ</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p2')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -499,7 +557,7 @@
                 <!-- Product 3: Mitsui Seiki ZV37 -->
                 <div class="product-card animate" data-category="trucvit cu">
                     <div class="product-img-wrap">
-                        <span class="product-badge">Nội Địa Cũ</span>
+                        <span class="product-badge"><i class="fa-solid fa-shield-halved"></i> 100% Zin Nhật</span>
                         <img src="images/mitsui-zv37.jpg" alt="Mitsui Seiki ZV37" class="product-img">
                     </div>
                     <div class="product-content">
@@ -512,7 +570,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> 120 - 145 Triệu</span>
+                                    <span class="product-price-sub">Biến tần i-14000 • Siêu êm 62dB</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p3')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -540,7 +601,7 @@
                 <!-- Product 4: Mitsui Seiki 100HP -->
                 <div class="product-card animate" data-category="trucvit cu">
                     <div class="product-img-wrap">
-                        <span class="product-badge">Nội Địa Cũ</span>
+                        <span class="product-badge"><i class="fa-solid fa-shield-halved"></i> 100% Zin Nhật</span>
                         <img src="images/mitsui-seiki-large.jpg" alt="Mitsui Seiki 100HP" class="product-img">
                     </div>
                     <div class="product-content">
@@ -553,7 +614,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> 210 - 260 Triệu</span>
+                                    <span class="product-price-sub">12.8 m³/phút • Công nghiệp tải nặng</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p4')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -581,7 +645,7 @@
                 <!-- Product 5: Kobelco -->
                 <div class="product-card animate" data-category="trucvit cu">
                     <div class="product-img-wrap">
-                        <span class="product-badge">Nội Địa Cũ</span>
+                        <span class="product-badge"><i class="fa-solid fa-shield-halved"></i> 100% Zin Nhật</span>
                         <img src="images/Kobelco-handsome.jpg" alt="Máy Nén Khí Kobelco" class="product-img">
                     </div>
                     <div class="product-content">
@@ -594,7 +658,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> 82 - 125 Triệu</span>
+                                    <span class="product-price-sub">Kobelion Nhật • 30HP - 50HP tùy chọn</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p5')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -644,7 +711,10 @@
                         </ul>
                         <div class="product-footer">
                             <div class="product-price-row">
-                                <span class="product-price"><i class="fa-solid fa-tag"></i> Giá: Liên hệ</span>
+                                <div class="product-price-box">
+                                    <span class="product-price"><i class="fa-solid fa-tag"></i> Từ 450.000 đ</span>
+                                    <span class="product-price-sub">Lọc dầu, lọc tách, nhớt Daphne Nhật</span>
+                                </div>
                                 <button type="button" onclick="openQuickView('p6')" class="product-spec-btn">
                                     <i class="fa-solid fa-circle-info"></i> Thông số
                                 </button>
@@ -669,6 +739,76 @@
 
             <div class="text-center" style="margin-top: 3rem;">
                 <a href="#contact" class="btn btn-primary btn-lg">Yêu Cầu Báo Giá Tất Cả Dòng Máy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 100% Japanese Quality Commitment & Comparison vs Chinese Compressors -->
+    <section id="japan-commitment" class="section">
+        <div class="container">
+            <div class="section-header animate">
+                <div class="section-label" style="background: rgba(239, 68, 68, 0.12); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">
+                    <i class="fa-solid fa-ban"></i> NÓI KHÔNG VỚI MÁY TRUNG QUỐC KÉM CHẤT LƯỢNG
+                </div>
+                <h2 class="section-title">100% Máy Nén Khí Nội Địa Nhật Bản Tuyển Chọn</h2>
+                <p class="section-subtitle">Thịnh Phát kiên định với tôn chỉ 26 năm: Chỉ cung cấp máy nội địa Nhật bãi nguyên bản (Hitachi, Kobelco, Airman, Iwata, Mitsui Seiki). Tuyệt đối KHÔNG bán máy Trung Quốc trôi nổi, máy dán tem nhái làm gián đoạn dây chuyền của doanh nghiệp.</p>
+            </div>
+
+            <!-- Comparison Matrix: Japan vs China -->
+            <div class="japan-vs-china-card animate">
+                <div class="jvc-grid">
+                    <!-- Column 1: Thịnh Phát Japan -->
+                    <div class="jvc-col jvc-japan">
+                        <div class="jvc-badge-top"><i class="fa-solid fa-award"></i> THỊNH PHÁT (100% NỘI ĐỊA NHẬT)</div>
+                        <h3>Máy Nhật Bãi Tuyển Chọn</h3>
+                        <p class="jvc-lead">Đầu nén zin nguyên bản, bền bỉ 15 - 20 năm</p>
+                        <ul class="jvc-list">
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Trục vít thép hợp kim tôi nhiệt chuẩn Nhật:</strong> Gia công chính xác cấp độ micromet, khe hở siêu nhỏ, không tụt áp sau nhiều năm.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Siêu tiết kiệm điện:</strong> Động cơ hiệu suất cao IE3 kết hợp biến tần, tiết kiệm 30% - 40% tiền điện mỗi tháng.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Vận hành êm ái, cách âm chuyên nghiệp:</strong> Độ ồn chỉ 60 - 68 dB, chạy 24/7 mát máy dưới thời tiết Bình Dương.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Linh kiện sẵn có 100%:</strong> Lọc gió, lọc dầu, lọc tách sẵn kho Thuận An, chi phí bảo trì cực rẻ.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Giữ giá trị thanh lý cực cao:</strong> Dùng 5 - 7 năm bán lại vẫn thu hồi 60% - 70% giá trị ban đầu.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: China cheap alternatives -->
+                    <div class="jvc-col jvc-china">
+                        <div class="jvc-badge-top danger"><i class="fa-solid fa-triangle-exclamation"></i> RỦI RO MÁY TRUNG QUỐC</div>
+                        <h3>Máy Trung Quốc Giá Rẻ</h3>
+                        <p class="jvc-lead">Chi phí đầu tư rẻ lúc đầu nhưng rủi ro khôn lường</p>
+                        <ul class="jvc-list">
+                            <li><i class="fa-solid fa-circle-xmark"></i> <strong>Trục vít thép non nhanh mài mòn:</strong> Sau 1 - 2 năm dễ xước khe hở, lưu lượng khí tụt giảm 30-50%.</li>
+                            <li><i class="fa-solid fa-circle-xmark"></i> <strong>Hao phí điện năng khủng khiếp:</strong> Động cơ hiệu suất thấp, tiêu tốn thêm hàng chục triệu tiền điện mỗi tháng.</li>
+                            <li><i class="fa-solid fa-circle-xmark"></i> <strong>Rung lắc mạnh & Quá nhiệt:</strong> Mùa nắng nóng Bình Dương thường xuyên tự ngắt máy, ngưng trệ sản xuất.</li>
+                            <li><i class="fa-solid fa-circle-xmark"></i> <strong>Linh kiện độc quyền, khó tìm:</strong> Khi hỏng hóc phải chờ đặt hàng nhiều tuần, giá phụ tùng đắt đỏ.</li>
+                            <li><i class="fa-solid fa-circle-xmark"></i> <strong>Gần như mất trắng khi thanh lý:</strong> Sau 3 năm hỏng hóc liên miên, bán ve chai không ai mua.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4 Golden Commitments -->
+                <div class="commitments-banner">
+                    <div class="commit-item">
+                        <div class="commit-icon"><i class="fa-solid fa-stamp"></i></div>
+                        <h4>Zin Nguyên Bản 100%</h4>
+                        <p>Đầu nén & động cơ nội địa Nhật 90-95%, không pha trộn linh kiện nhái.</p>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                        <h4>Thử Tải Thực Tế</h4>
+                        <p>Đo ampe, thử tải áp suất và nhiệt độ tại kho Thuận An trước khi giao.</p>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h4>Bảo Hành 12 - 24 Tháng</h4>
+                        <p>Kỹ thuật viên tại Bình Dương có mặt xử lý trong vòng 2 - 4 giờ.</p>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                        <h4>Thu Cũ Đổi Mới</h4>
+                        <p>Cam kết hỗ trợ nâng cấp máy khi doanh nghiệp mở rộng quy mô xưởng.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1041,6 +1181,15 @@
             <div class="faq-grid">
                 <div class="faq-item animate">
                     <button class="faq-question">
+                        Tại sao Thịnh Phát kiên quyết nói KHÔNG với máy nén khí Trung Quốc?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Máy nén khí là "trái tim" cung cấp nguồn khí động lực cho toàn bộ dây chuyền sản xuất của xưởng. Máy Trung Quốc giá rẻ thường dùng trục vít gia công độ chính xác thấp, động cơ nhôm/thép non, sau 1-2 năm sử dụng thường bị tụt áp 30-50%, nóng máy tự ngắt trong mùa nắng Bình Dương và tiêu tốn nhiều điện năng hơn từ 30% đến 40%. Ngược lại, máy nội địa Nhật Bản (Hitachi, Kobelco, Airman, Iwata) được đúc từ thép hợp kim chịu mài mòn cực tốt, vận hành êm ái 15-20 năm, siêu tiết kiệm điện và giữ giá trị thanh lý cực cao.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate">
+                    <button class="faq-question">
                         Máy nén khí nội địa cũ có đảm bảo chất lượng không?
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
@@ -1321,6 +1470,14 @@
                     <div class="qv-specs-section">
                         <h4>Thông Số Kỹ Thuật Chi Tiết</h4>
                         <table class="qv-specs-table">
+                            <tr style="background: rgba(var(--secondary-rgb), 0.08);">
+                                <td style="color: var(--secondary); font-weight: 800;"><i class="fa-solid fa-tag"></i> Giá tham khảo:</td>
+                                <td id="qvPrice" style="color: var(--secondary); font-weight: 800; font-size: 1rem;"></td>
+                            </tr>
+                            <tr>
+                                <td style="color: #10b981; font-weight: 700;"><i class="fa-solid fa-shield-halved"></i> Xuất xứ & Cam kết:</td>
+                                <td id="qvOrigin" style="color: #10b981; font-weight: 700;">100% Nội địa Nhật (Nói KHÔNG máy Trung Quốc)</td>
+                            </tr>
                             <tr>
                                 <td>Công suất:</td>
                                 <td id="qvPower"></td>
@@ -1699,25 +1856,31 @@
             p1: {
                 title: "Máy Nén Trục Vít SMS22E-B 30HP",
                 brand: "Airman",
-                category: "Trục Vít Ngập Dầu",
+                category: "Trục Vít Ngập Dầu (Inverter)",
                 power: "30 HP (22 kW)",
                 flow: "3.7 m³/phút (3700 Lít/phút)",
                 pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
                 voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
+                price: "78.000.000 đ – 95.000.000 đ (Tiết kiệm 65% so với máy mới)",
+                origin: "100% Nhật Bản (Zin bãi nguyên bản, KHÔNG bán máy Trung Quốc)",
+                warranty: "12 tháng tận nơi, bảo trì trọn đời",
                 status: "Đã qua sử dụng (Mới 90-95%, nguyên bản)",
                 dryer: "Tích hợp máy sấy tách ẩm khí nén",
-                cooling: "Làm mát bằng gió / Truyền động dây đai",
+                cooling: "Làm mát bằng gió / Vỏ ProAir cách âm siêu êm",
                 maintenance: "Thay thế dầu máy nén khí trục vít chuyên dụng mỗi 3000 giờ chạy. Vệ sinh lưới lọc bụi tản nhiệt định kỳ hàng tuần.",
                 images: ["images/airman-sms22e-front.jpg", "images/airman-sms22e-inside.jpg"]
             },
             p2: {
                 title: "Máy Nén Trục Vít ZgaiardX Z37 50HP",
                 brand: "Mitsui Seiki",
-                category: "Trục Vít Ngập Dầu",
+                category: "Trục Vít Đơn Cao Cấp (IE3)",
                 power: "50 HP (37 kW)",
                 flow: "6.2 m³/phút (6200 Lít/phút)",
                 pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
                 voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
+                price: "115.000.000 đ – 138.000.000 đ",
+                origin: "100% Nhật Bản (Mitsui Seiki chính hãng, KHÔNG bán máy Trung Quốc)",
+                warranty: "12 tháng tận nơi, hỗ trợ 24/7",
                 status: "Đã qua sử dụng (Zin nguyên bản 95%)",
                 dryer: "Tích hợp hệ thống sấy tách nước",
                 cooling: "Làm mát bằng gió / Truyền động trực tiếp",
@@ -1725,42 +1888,51 @@
                 images: ["images/mitsui-z37-front.png", "images/mitsui-z37-side.jpg"]
             },
             p3: {
-                title: "Máy Nén Trục Vít ZV37 50HP",
+                title: "Máy Nén Trục Vít ZV37 50HP Inverter",
                 brand: "Mitsui Seiki",
-                category: "Trục Vít Tiết Kiệm Điện (Inverter)",
+                category: "Trục Vít Tiết Kiệm Điện (Inverter i-14000)",
                 power: "50 HP (37 kW)",
                 flow: "6.3 m³/phút (6300 Lít/phút)",
                 pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
                 voltage: "3 Pha 380V / 50Hz (Có sấy khí)",
-                status: "Nội địa Nhật chất lượng cao (Zin 90%)",
+                price: "120.000.000 đ – 145.000.000 đ",
+                origin: "100% Nhật Bản (Zin bãi nguyên bản, KHÔNG bán máy Trung Quốc)",
+                warranty: "12 - 24 tháng tận nơi, sẵn phụ tùng thay thế",
+                status: "Nội địa Nhật chất lượng cao (Zin 90-95%)",
                 dryer: "Tích hợp sấy khí khô lọc bụi bẩn",
-                cooling: "Làm mát bằng gió / Inverter biến tần",
+                cooling: "Làm mát bằng gió / Inverter biến tần thông minh",
                 maintenance: "Giữ môi trường đặt máy khô thoáng, tránh nhiệt độ quá cao làm hư biến tần. Định kỳ vệ sinh màng lọc gió đầu vào.",
                 images: ["images/mitsui-zv37.jpg"]
             },
             p4: {
                 title: "Máy Nén Trục Vít 100HP (75kW)",
                 brand: "Mitsui Seiki",
-                category: "Trục Vít Công Nghiệp Nặng",
+                category: "Trục Vít Công Nghiệp Nặng (12.8 m³/phút)",
                 power: "100 HP (75 kW)",
                 flow: "12.8 m³/phút (12800 Lít/phút)",
                 pressure: "0.7 - 0.85 MPa (7 - 8.5 Bar)",
                 voltage: "3 Pha 380V / 50Hz",
-                status: "Nội địa Nhật đã qua bảo trì (Đẹp 95%)",
+                price: "210.000.000 đ – 260.000.000 đ",
+                origin: "100% Nhật Bản (Nhập khẩu nguyên chiếc từ bãi Nhật)",
+                warranty: "12 - 24 tháng tận nơi, bảo trì định kỳ",
+                status: "Nội địa Nhật đã qua bảo trì toàn diện (Đẹp 95%)",
                 dryer: "Độc lập hoặc tích hợp (Tùy chọn khách hàng)",
                 cooling: "Làm mát bằng gió (giàn tản nhiệt lớn) / Truyền động khớp nối cứng",
                 maintenance: "Sử dụng dầu bôi trơn chất lượng cao chịu nhiệt tốt. Thường xuyên kiểm tra lượng nước ngưng trong bình tách.",
                 images: ["images/mitsui-seiki-large.jpg"]
             },
             p5: {
-                title: "Máy Nén Khí Trục Vít Kobelco",
+                title: "Máy Nén Khí Trục Vít Kobelco Kobelion",
                 brand: "Kobelco",
-                category: "Trục Vít Dòng Kobelion",
+                category: "Trục Vít Dòng Kobelion Danh Tiếng",
                 power: "30 HP - 50 HP (Tùy chọn)",
                 flow: "3.8 - 6.5 m³/phút (Tùy phiên bản)",
                 pressure: "0.75 - 0.85 MPa (7.5 - 8.5 Bar)",
                 voltage: "3 Pha 380V / 50Hz (Nội địa Nhật)",
-                status: "Zin nguyên bản hoạt động cực êm (Mới 90%)",
+                price: "82.000.000 đ – 125.000.000 đ",
+                origin: "100% Nhật Bản (Kobelco Nhật bãi nguyên bản)",
+                warranty: "12 tháng tận nơi, có mặt trong 2h",
+                status: "Zin nguyên bản hoạt động cực êm (Mới 90-95%)",
                 dryer: "Tích hợp máy sấy khí bên trong vỏ cách âm",
                 cooling: "Làm mát bằng gió / Truyền động trực tiếp",
                 maintenance: "Vệ sinh giàn tản nhiệt định kỳ để tránh máy tự ngắt do nhiệt độ cao. Thay dầu định kỳ đúng tiêu chuẩn hãng Kobelco.",
@@ -1769,12 +1941,15 @@
             p6: {
                 title: "Phụ Tùng & Linh Kiện Chính Hãng",
                 brand: "Đa Thương Hiệu Nhật Bản",
-                category: "Vật Tư Tiêu Hao & Linh Kiện",
+                category: "Vật Tư Tiêu Hao & Linh Kiện Chuẩn Nhật",
                 power: "Phù hợp mọi công suất máy nén",
                 flow: "Theo thông số máy",
                 pressure: "Chịu áp lực cao lên tới 16 Bar",
                 voltage: "N/A",
-                status: "Mới 100% (Nhập khẩu chính hãng Nhật/Đài Loan)",
+                price: "Từ 450.000 đ (Tùy loại lọc / nhớt)",
+                origin: "100% Chính hãng Nhật Bản / Đài Loan cao cấp (Nói KHÔNG với lọc nhái)",
+                warranty: "Cam kết chuẩn kỹ thuật nhà máy",
+                status: "Mới 100% (Nhập khẩu chính hãng có CO/CQ)",
                 dryer: "Đầy đủ lõi lọc, hạt hút ẩm lọc sấy",
                 cooling: "Quạt tản nhiệt, giàn mát dầu thay thế",
                 maintenance: "Thay thế lọc định kỳ theo số giờ vận hành khuyến nghị (Lọc dầu: 2000h, Lọc tách dầu: 3000h, Lọc gió: 2000h).",
@@ -1798,6 +1973,8 @@
             document.getElementById('qvDryer').textContent = data.dryer;
             document.getElementById('qvCooling').textContent = data.cooling;
             document.getElementById('qvMaintenance').textContent = data.maintenance;
+            if (document.getElementById('qvPrice')) document.getElementById('qvPrice').textContent = data.price;
+            if (document.getElementById('qvOrigin')) document.getElementById('qvOrigin').textContent = data.origin;
             
             const mainImg = document.getElementById('qvMainImg');
             mainImg.src = data.images[0];
@@ -2199,6 +2376,7 @@
                     title: data.title,
                     brand: data.brand,
                     power: data.power,
+                    price: data.price,
                     image: data.images[0]
                 });
             }
@@ -2430,9 +2608,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style="background:rgba(var(--secondary-rgb), 0.08);">
+                        <td style="color:var(--secondary); font-weight:800;"><i class="fa-solid fa-tag"></i> Giá tham khảo</td>
+                        ${products.map(p => `<td><strong style="color:var(--secondary); font-size:1rem;">${p.price || 'Liên hệ'}</strong></td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td style="color:#10b981; font-weight:700;"><i class="fa-solid fa-shield-halved"></i> Xuất xứ cam kết</td>
+                        ${products.map(p => `<td style="color:#10b981; font-weight:700;">100% Nhật Bản (Không bán hàng TQ)</td>`).join('')}
+                    </tr>
                     <tr>
                         <td>Công suất</td>
-                        ${products.map(p => `<td><strong style="color:var(--secondary);">${p.power}</strong></td>`).join('')}
+                        ${products.map(p => `<td><strong style="color:var(--text-main);">${p.power}</strong></td>`).join('')}
                     </tr>
                     <tr>
                         <td>Lưu lượng khí</td>

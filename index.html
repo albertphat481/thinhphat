@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="index.css?v=1.2">
+    <link rel="stylesheet" href="index.css?v=2.0">
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -35,9 +35,12 @@
             <div class="top-bar-left">
                 <span><i class="fa-solid fa-location-dot"></i> 34/3B Ấp 2, An Phú, Thuận An, Bình Dương</span>
                 <span><i class="fa-solid fa-clock"></i> T2-T6: 08:00–17:30 | T7: 08:00–12:00</span>
+                <span class="live-status-pill" style="margin-bottom:0; padding:0.2rem 0.65rem; font-size:0.72rem; display:inline-flex;">
+                    <span class="live-status-dot"></span> Xưởng Sẵn Máy 24/7
+                </span>
             </div>
             <div class="top-bar-right">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" title="Official Facebook Fanpage: @mnk.thinh.phat"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="https://zalo.me/0961095247" target="_blank" title="Zalo"><i class="fa-solid fa-comment-dots"></i></a>
                 <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
@@ -59,13 +62,20 @@
                 <li><a href="#home" class="nav-link active" data-i18n="nav-home">Trang chủ</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav-about">Về chúng tôi</a></li>
                 <li><a href="#products" class="nav-link" data-i18n="nav-products">Sản phẩm</a></li>
+                <li><a href="#roi-calculator" class="nav-link" data-i18n="nav-roi"><i class="fa-solid fa-bolt" style="color:var(--secondary);"></i> Tính Tiết Kiệm Điện</a></li>
                 <li><a href="#services" class="nav-link" data-i18n="nav-services">Dịch vụ</a></li>
                 <li><a href="#gallery" class="nav-link" data-i18n="nav-gallery">Hình ảnh</a></li>
+                <li><a href="#facebook-official" class="nav-link" data-i18n="nav-facebook"><i class="fa-brands fa-facebook" style="color:#1877f2;"></i> Fanpage</a></li>
                 <li><a href="#faq" class="nav-link" data-i18n="nav-faq">FAQ</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav-contact">Liên hệ</a></li>
             </ul>
 
             <div class="header-cta">
+                <button class="header-quote-btn" onclick="toggleQuoteCart()" title="Xem giỏ yêu cầu báo giá">
+                    <i class="fa-solid fa-file-invoice-dollar" style="color:var(--secondary);"></i>
+                    <span class="header-quote-text" data-i18n="quote-btn-text">Giỏ Báo Giá</span>
+                    <span class="header-quote-badge" id="quoteCartCount">0</span>
+                </button>
                 <a href="tel:0961095247" class="hotline">
                     <i class="fa-solid fa-phone-volume"></i>
                     0961 095 247
@@ -101,6 +111,7 @@
         <div class="hero-particles"></div>
         <div class="container" style="position: relative; z-index: 10;">
             <div class="hero-content animate">
+                <div class="live-status-pill"><span class="live-status-dot"></span> XƯỞNG BÌNH DƯƠNG SẴN SÀNG GIAO MÁY • HỖ TRỢ KỸ THUẬT 24/7</div>
                 <div class="hero-badge"><i class="fa-solid fa-medal"></i> ĐỐI TÁC TIN CẬY CHO MỌI DOANH NGHIỆP</div>
                 <h1 class="hero-title">Giải Pháp <span>Khí Nén</span> Toàn Diện & Bền Bỉ</h1>
                 <p class="hero-desc">Công ty TNHH Thịnh Phát chuyên cung cấp máy nén khí công nghiệp nội địa Nhật Bản — cũ và mới. Hitachi, Kobelco, Airman, Iwata... Đảm bảo hiệu suất tối đa, tiết kiệm điện năng, dịch vụ hậu mãi chu đáo.</p>
@@ -108,8 +119,14 @@
                     <a href="#products" class="hero-btn-primary">
                         <i class="fa-solid fa-cart-shopping"></i> Xem Sản Phẩm
                     </a>
+                    <a href="#roi-calculator" class="hero-btn-outline" style="border-color: #38bdf8; color: #38bdf8;">
+                        <i class="fa-solid fa-calculator"></i> Tính Tiền Điện Tiết Kiệm
+                    </a>
+                    <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="hero-btn-outline" style="border-color: #60a5fa; color: #60a5fa;">
+                        <i class="fa-brands fa-facebook"></i> Video Máy Fanpage
+                    </a>
                     <a href="tel:0961095247" class="hero-btn-outline">
-                        <i class="fa-solid fa-phone"></i> Gọi Tư Vấn Ngay
+                        <i class="fa-solid fa-phone"></i> Gọi Tư Vấn
                     </a>
                 </div>
             </div>
@@ -408,9 +425,11 @@
                         <a onclick="openQuickView('p1')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Máy Nén Trục Vít SMS22E-B 30HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p1')" class="btn-quote-add" id="btn-add-p1"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
+                                <button onclick="toggleCompareItem('p1')" class="btn-compare-item" id="btn-cmp-p1" title="So sánh thông số"><i class="fa-solid fa-code-compare"></i> So Sánh</button>
                             </div>
                         </div>
                     </div>
@@ -440,9 +459,11 @@
                         <a onclick="openQuickView('p2')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Máy Nén Trục Vít ZgaiardX Z37 50HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p2')" class="btn-quote-add" id="btn-add-p2"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
+                                <button onclick="toggleCompareItem('p2')" class="btn-compare-item" id="btn-cmp-p2" title="So sánh thông số"><i class="fa-solid fa-code-compare"></i> So Sánh</button>
                             </div>
                         </div>
                     </div>
@@ -465,9 +486,11 @@
                         <a onclick="openQuickView('p3')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Máy Nén Trục Vít ZV37 50HP')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p3')" class="btn-quote-add" id="btn-add-p3"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
+                                <button onclick="toggleCompareItem('p3')" class="btn-compare-item" id="btn-cmp-p3" title="So sánh thông số"><i class="fa-solid fa-code-compare"></i> So Sánh</button>
                             </div>
                         </div>
                     </div>
@@ -490,9 +513,11 @@
                         <a onclick="openQuickView('p4')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Máy Nén Trục Vít 100HP (75kW)')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p4')" class="btn-quote-add" id="btn-add-p4"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
+                                <button onclick="toggleCompareItem('p4')" class="btn-compare-item" id="btn-cmp-p4" title="So sánh thông số"><i class="fa-solid fa-code-compare"></i> So Sánh</button>
                             </div>
                         </div>
                     </div>
@@ -515,9 +540,11 @@
                         <a onclick="openQuickView('p5')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Máy Nén Khí Trục Vít Kobelco')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p5')" class="btn-quote-add" id="btn-add-p5"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
+                                <button onclick="toggleCompareItem('p5')" class="btn-compare-item" id="btn-cmp-p5" title="So sánh thông số"><i class="fa-solid fa-code-compare"></i> So Sánh</button>
                             </div>
                         </div>
                     </div>
@@ -549,15 +576,120 @@
                         <a onclick="openQuickView('p6')" class="product-detail-link">Xem thông số kỹ thuật <i class="fa-solid fa-arrow-right"></i></a>
                         <div class="product-footer">
                             <span class="product-price">Liên hệ</span>
-                            <div class="product-actions">
+                            <div class="product-actions" style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end;">
                                 <a href="tel:0961095247" class="btn-icon" title="Gọi điện trực tiếp"><i class="fa-solid fa-phone"></i></a>
                                 <button onclick="contactZalo('Phụ Tùng & Linh Kiện Chính Hãng')" class="product-contact"><i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo</button>
+                                <button onclick="addToQuoteCart('p6')" class="btn-quote-add" id="btn-add-p6"><i class="fa-solid fa-cart-plus"></i> + Báo Giá</button>
                             </div>
                         </div>
-
+                    </div>
+                </div>
+            </div>
 
             <div class="text-center" style="margin-top: 3rem;">
                 <a href="#contact" class="btn btn-primary btn-lg">Yêu Cầu Báo Giá Tất Cả Dòng Máy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Savings & ROI Calculator Section -->
+    <section id="roi-calculator" class="roi-section">
+        <div class="container">
+            <div class="section-header animate">
+                <div class="section-label" data-i18n="roi-badge"><i class="fa-solid fa-bolt"></i> CÔNG CỤ TÍNH KINH TẾ</div>
+                <h2 class="section-title" data-i18n="roi-title">Bảng Tính Tiết Kiệm Điện Năng (Inverter ROI)</h2>
+                <p class="section-subtitle" data-i18n="roi-subtitle">Máy nén khí biến tần (Inverter) nội địa Nhật giúp doanh nghiệp tiết kiệm 25% - 40% chi phí điện năng mỗi tháng. Hãy tính xem xưởng của bạn tiết kiệm được bao nhiêu triệu đồng mỗi năm!</p>
+            </div>
+
+            <div class="roi-card animate">
+                <div class="roi-controls">
+                    <div class="roi-group">
+                        <div class="roi-label-row">
+                            <span data-i18n="roi-lbl-power">1. Chọn Công Suất Máy Nén:</span>
+                            <span class="roi-val-badge" id="roiPowerDisplay">37 kW (50 HP)</span>
+                        </div>
+                        <div class="roi-power-presets">
+                            <button type="button" class="roi-preset-btn" onclick="selectRoiPower(15, '20 HP')">15 kW (20HP)</button>
+                            <button type="button" class="roi-preset-btn" onclick="selectRoiPower(22, '30 HP')">22 kW (30HP)</button>
+                            <button type="button" class="roi-preset-btn active" onclick="selectRoiPower(37, '50 HP')">37 kW (50HP)</button>
+                            <button type="button" class="roi-preset-btn" onclick="selectRoiPower(75, '100 HP')">75 kW (100HP)</button>
+                        </div>
+                    </div>
+
+                    <div class="roi-group">
+                        <div class="roi-label-row">
+                            <span data-i18n="roi-lbl-hours">2. Thời Gian Chạy Mỗi Ngày:</span>
+                            <span class="roi-val-badge" id="roiHoursDisplay">12 giờ/ngày</span>
+                        </div>
+                        <input type="range" class="roi-slider" id="roiHoursSlider" min="4" max="24" value="12" step="1" oninput="updateRoiCalc()">
+                        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">
+                            <span>4h (1 Ca ngắn)</span>
+                            <span>12h (2 Ca sản xuất)</span>
+                            <span>24h (Chạy 3 Ca liên tục)</span>
+                        </div>
+                    </div>
+
+                    <div class="roi-group">
+                        <div class="roi-label-row">
+                            <span data-i18n="roi-lbl-days">3. Số Ngày Làm Việc / Tháng:</span>
+                            <span class="roi-val-badge" id="roiDaysDisplay">26 ngày</span>
+                        </div>
+                        <input type="range" class="roi-slider" id="roiDaysSlider" min="20" max="30" value="26" step="1" oninput="updateRoiCalc()">
+                    </div>
+
+                    <div class="roi-group">
+                        <div class="roi-label-row">
+                            <span data-i18n="roi-lbl-rate">4. Giá Điện Trung Bình (VNĐ/kWh):</span>
+                            <span class="roi-val-badge" id="roiRateDisplay">2.500 đ</span>
+                        </div>
+                        <input type="range" class="roi-slider" id="roiRateSlider" min="1800" max="4000" value="2500" step="100" oninput="updateRoiCalc()">
+                    </div>
+
+                    <div class="roi-group">
+                        <div class="roi-label-row">
+                            <span data-i18n="roi-lbl-percent">5. Tỷ Lệ Tiết Kiệm Inverter Ước Tính:</span>
+                            <span class="roi-val-badge" id="roiPercentDisplay">30%</span>
+                        </div>
+                        <input type="range" class="roi-slider" id="roiPercentSlider" min="20" max="40" value="30" step="5" oninput="updateRoiCalc()">
+                    </div>
+                </div>
+
+                <div class="roi-dashboard">
+                    <div>
+                        <div class="roi-dash-title" data-i18n="roi-dash-title"><i class="fa-solid fa-chart-line"></i> DỰ TOÁN HIỆU QUẢ KINH TẾ</div>
+                        <div class="roi-big-metric">
+                            <div class="roi-metric-sub" data-i18n="roi-saved-month">Số tiền xưởng tiết kiệm mỗi tháng:</div>
+                            <div class="roi-big-num" id="roiMoneyMonth">8.658.000 đ</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="roi-grid-stats">
+                            <div class="roi-stat-box">
+                                <h5 data-i18n="roi-saved-kwh">Điện Năng Tiết Kiệm:</h5>
+                                <div class="num" id="roiKwhMonth">3.463 kWh/tháng</div>
+                            </div>
+                            <div class="roi-stat-box">
+                                <h5 data-i18n="roi-saved-year">Tiết Kiệm Mỗi Năm:</h5>
+                                <div class="num" id="roiMoneyYear" style="color:#fbbf24;">103.896.000 đ</div>
+                            </div>
+                        </div>
+
+                        <div class="roi-payback-box">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong data-i18n="roi-payback-title">Hoàn vốn cực nhanh:</strong>
+                                <span id="roiPaybackText" data-i18n="roi-payback-desc">Số tiền điện tiết kiệm trong 8 - 12 tháng đã đủ bù toàn bộ chi phí mua máy!</span>
+                            </div>
+                        </div>
+
+                        <div class="roi-actions">
+                            <button type="button" class="btn-roi-zalo" onclick="sendRoiToZalo()">
+                                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="roi-btn-zalo">Gửi Kết Quả Cho Anh Xuân Nhận Báo Giá Máy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -704,6 +836,47 @@
                 <div class="gallery-item">
                     <img src="images/hero.png" alt="Kho máy nén khí Thịnh Phát">
                     <span><i class="fa-solid fa-expand"></i> Tổng kho máy nén khí</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Facebook Fanpage Section -->
+    <section id="facebook-official" class="container">
+        <div class="fb-official-section animate">
+            <div class="fb-official-grid">
+                <div>
+                    <div class="fb-badge-tag"><i class="fa-brands fa-facebook"></i> TRANG CHÍNH THỨC CÔNG TY</div>
+                    <h2 class="fb-official-title">Kết Nối Với Fanpage <span>Máy Nén Khí Thịnh Phát</span></h2>
+                    <p class="fb-official-desc">Theo dõi Fanpage chính thức <strong>@mnk.thinh.phat</strong> để cập nhật video thử tải máy Nhật bãi về kho liên tục mỗi tuần, kiểm tra áp suất thực tế, chia sẻ cẩm nang bảo trì và các chương trình ưu đãi đặc biệt.</p>
+                    
+                    <div class="fb-highlights">
+                        <div class="fb-hl-item"><i class="fa-solid fa-video"></i> Video test máy thực tế tại kho</div>
+                        <div class="fb-hl-item"><i class="fa-solid fa-box-open"></i> Lô máy mới về bãi cập nhật hàng tuần</div>
+                        <div class="fb-hl-item"><i class="fa-solid fa-shield-halved"></i> Đánh giá của các xưởng cơ khí</div>
+                    </div>
+
+                    <div class="fb-actions-group">
+                        <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="btn-fb-main">
+                            <i class="fa-brands fa-facebook"></i> Ghé Thăm Fanpage @mnk.thinh.phat
+                        </a>
+                        <a href="https://m.me/mnk.thinh.phat" target="_blank" class="btn-fb-msg">
+                            <i class="fa-brands fa-facebook-messenger"></i> Nhắn Tin Messenger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fb-card-preview">
+                    <div class="fb-avatar-box">
+                        <img src="images/logo.png" alt="Thịnh Phát Logo">
+                    </div>
+                    <div class="fb-card-name">
+                        Máy Nén Khí Thịnh Phát <i class="fa-solid fa-circle-check" title="Official Verified"></i>
+                    </div>
+                    <div class="fb-card-handle">@mnk.thinh.phat • Trang Doanh Nghiệp</div>
+                    <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="btn btn-primary btn-sm" style="width: 100%; border-radius: 50px;">
+                        <i class="fa-brands fa-facebook-f"></i> Theo Dõi Ngay
+                    </a>
                 </div>
             </div>
         </div>
@@ -878,7 +1051,7 @@
                         </div>
                     </div>
                     <div class="contact-socials">
-                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://zalo.me/0961095247" target="_blank" title="Zalo"><i class="fa-solid fa-comment-dots"></i></a>
                         <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
@@ -997,11 +1170,22 @@
         </div>
     </footer>
 
-    <!-- Floating Contact -->
+    <!-- Floating Contact Stack -->
     <div class="floating-contact">
+        <!-- Floating Quote Cart Button -->
+        <button class="float-btn float-cart-btn" onclick="toggleQuoteCart()" title="Xem giỏ báo giá">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span class="float-cart-badge" id="floatCartCount">0</span>
+        </button>
+        <!-- Facebook Fanpage Button -->
+        <a href="https://www.facebook.com/mnk.thinh.phat" target="_blank" class="float-btn float-fb" title="Fanpage Facebook: @mnk.thinh.phat">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <!-- Zalo Button -->
         <a href="https://zalo.me/0961095247" target="_blank" class="float-btn float-zalo" title="Chat Zalo">
             <i class="fa-solid fa-comment-dots"></i>
         </a>
+        <!-- Phone Button -->
         <a href="tel:0961095247" class="float-btn float-phone" title="Gọi Ngay: 0961 095 247">
             <i class="fa-solid fa-phone"></i>
         </a>
@@ -1109,6 +1293,71 @@
         <a href="https://zalo.me/0961095247" target="_blank" class="sticky-btn sticky-zalo">
             <i class="fa-solid fa-comment-dots"></i> Chat Zalo
         </a>
+    </div>
+
+
+    <!-- Comparison Sticky Bar -->
+    <div id="compareStickyBar" class="compare-sticky-bar">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
+            <i class="fa-solid fa-code-compare" style="color:var(--primary);"></i>
+            <span>So sánh (<span id="compareCount">0</span>/3):</span>
+        </div>
+        <div class="compare-chips" id="compareChips">
+            <!-- Populated dynamically -->
+        </div>
+        <button class="btn-open-compare" onclick="openCompareModal()">
+            <i class="fa-solid fa-table-columns"></i> So Sánh Ngay
+        </button>
+        <button onclick="clearAllCompare()" style="background:transparent; border:none; color:#ef4444; font-size:0.8rem; cursor:pointer; font-weight:600; padding:0 0.5rem;">
+            Xóa hết
+        </button>
+    </div>
+
+    <!-- Comparison Matrix Modal -->
+    <div id="compareModal" class="compare-modal">
+        <div class="compare-modal-content">
+            <div class="compare-modal-header">
+                <h3><i class="fa-solid fa-code-compare" style="color:var(--secondary);"></i> So Sánh Chi Tiết Máy Nén Khí</h3>
+                <button onclick="closeCompareModal()" class="quote-drawer-close">&times;</button>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="compare-table" id="compareTable">
+                    <!-- Populated dynamically -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Cart Drawer Overlay & Drawer -->
+    <div id="quoteCartOverlay" class="quote-drawer-overlay" onclick="toggleQuoteCart()"></div>
+    <div id="quoteCartDrawer" class="quote-drawer">
+        <div class="quote-drawer-header">
+            <div class="quote-drawer-title">
+                <i class="fa-solid fa-file-invoice-dollar" style="color:var(--secondary);"></i>
+                <span>Danh Sách Yêu Cầu Báo Giá</span>
+            </div>
+            <button class="quote-drawer-close" onclick="toggleQuoteCart()">&times;</button>
+        </div>
+        <div class="quote-drawer-body" id="quoteCartBody">
+            <!-- Populated dynamically -->
+        </div>
+        <div class="quote-drawer-footer" id="quoteCartFooter">
+            <div class="quote-form-group">
+                <input type="text" id="quoteCustName" placeholder="Họ và tên của bạn *" required>
+            </div>
+            <div class="quote-form-group">
+                <input type="tel" id="quoteCustPhone" placeholder="Số điện thoại *" required>
+            </div>
+            <div class="quote-form-group">
+                <input type="text" id="quoteCustCompany" placeholder="Tên xưởng / Công ty (nếu có)">
+            </div>
+            <button type="button" class="quote-btn-zalo" onclick="sendQuoteCartToZalo()">
+                <i class="fa-solid fa-comment-dots"></i> Gửi Danh Sách Báo Giá Qua Zalo
+            </button>
+            <button type="button" class="quote-btn-email" onclick="sendQuoteCartToEmail()">
+                <i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu Tới Email Công Ty
+            </button>
+        </div>
     </div>
 
     <!-- JavaScript -->
@@ -1728,7 +1977,432 @@
             if (event.target === qvModal) {
                 closeQuickView();
             }
+            const cmpModal = document.getElementById('compareModal');
+            if (event.target === cmpModal) {
+                closeCompareModal();
+            }
         });
+
+
+        // ===== Energy Savings & ROI Calculator Engine =====
+        let selectedRoiKw = 37;
+        let selectedRoiHp = "50 HP";
+
+        function selectRoiPower(kw, hp) {
+            selectedRoiKw = kw;
+            selectedRoiHp = hp;
+            document.getElementById('roiPowerDisplay').textContent = `${kw} kW (${hp})`;
+            
+            document.querySelectorAll('.roi-preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(`${kw} kW`)) {
+                    btn.classList.add('active');
+                }
+            });
+            updateRoiCalc();
+        }
+
+        function updateRoiCalc() {
+            const hours = parseInt(document.getElementById('roiHoursSlider').value);
+            const days = parseInt(document.getElementById('roiDaysSlider').value);
+            const rate = parseInt(document.getElementById('roiRateSlider').value);
+            const percent = parseInt(document.getElementById('roiPercentSlider').value);
+
+            // Update badge displays
+            document.getElementById('roiHoursDisplay').textContent = `${hours} giờ/ngày`;
+            document.getElementById('roiDaysDisplay').textContent = `${days} ngày`;
+            document.getElementById('roiRateDisplay').textContent = `${rate.toLocaleString('vi-VN')} đ`;
+            document.getElementById('roiPercentDisplay').textContent = `${percent}%`;
+
+            // Standard power calculation: kW * hours * days * average load factor (0.8)
+            const loadFactor = 0.8;
+            const standardMonthlyKwh = selectedRoiKw * hours * days * loadFactor;
+            const savedKwh = Math.round(standardMonthlyKwh * (percent / 100));
+            const savedMoneyMonth = Math.round(savedKwh * rate);
+            const savedMoneyYear = savedMoneyMonth * 12;
+
+            document.getElementById('roiKwhMonth').textContent = `${savedKwh.toLocaleString('vi-VN')} kWh/tháng`;
+            document.getElementById('roiMoneyMonth').textContent = `${savedMoneyMonth.toLocaleString('vi-VN')} đ`;
+            document.getElementById('roiMoneyYear').textContent = `${savedMoneyYear.toLocaleString('vi-VN')} đ`;
+
+            // Save to LocalStorage (API persistence)
+            try {
+                localStorage.setItem('thinhphat_roi_calc', JSON.stringify({
+                    kw: selectedRoiKw,
+                    hp: selectedRoiHp,
+                    hours: hours,
+                    days: days,
+                    rate: rate,
+                    percent: percent,
+                    savedMonth: savedMoneyMonth,
+                    savedYear: savedMoneyYear
+                }));
+            } catch(e) {}
+        }
+
+        function sendRoiToZalo() {
+            const hours = document.getElementById('roiHoursSlider').value;
+            const days = document.getElementById('roiDaysSlider').value;
+            const savedMonth = document.getElementById('roiMoneyMonth').textContent;
+            const savedYear = document.getElementById('roiMoneyYear').textContent;
+            const lang = localStorage.getItem('lang') || 'vi';
+
+            let msg = `Chào anh Xuân, tôi đã dùng Bảng Tính Tiết Kiệm Điện trên web Thịnh Phát:\n- Máy công suất: ${selectedRoiKw} kW (${selectedRoiHp})\n- Chạy: ${hours}h/ngày, ${days} ngày/tháng\n- Dự toán tiết kiệm: ${savedMonth} (~${savedYear})\nNhờ anh tư vấn chi tiết dòng máy Biến Tần (Inverter) Nhật bãi phù hợp cho xưởng tôi nhé!`;
+            
+            if (lang === 'en') {
+                msg = `Hello Mr. Xuan, I calculated energy savings on your website for a ${selectedRoiKw} kW (${selectedRoiHp}) inverter air compressor (${hours}h/day, ${days} days/month, estimated savings: ${savedMonth}). Please advise and quote the best Japanese inverter models!`;
+            } else if (lang === 'zh') {
+                msg = `您好宣经理，我在贵公司网站测算了 ${selectedRoiKw} kW (${selectedRoiHp}) 变频空压机的节电效益（每天运行 ${hours} 小时，每月 ${days} 天，预计月省 ${savedMonth}）。请为我的工厂推荐合适的日本原装二手变频机并报价！`;
+            }
+
+            navigator.clipboard.writeText(msg).then(() => {
+                console.log('ROI text copied');
+            }).catch(e => console.error(e));
+
+            const modal = document.getElementById('zaloModal');
+            document.getElementById('zaloProductName').textContent = `Inverter ${selectedRoiHp}`;
+            document.getElementById('zaloMessageText').textContent = msg;
+            document.getElementById('zaloRedirectBtn').href = 'https://zalo.me/0961095247';
+            modal.classList.add('show');
+        }
+
+        // ===== Quote Cart (Giỏ Báo Giá) Engine =====
+        let quoteCart = [];
+
+        function initQuoteCart() {
+            try {
+                const saved = localStorage.getItem('thinhphat_quote_cart');
+                if (saved) {
+                    quoteCart = JSON.parse(saved);
+                }
+            } catch(e) {
+                quoteCart = [];
+            }
+            updateQuoteCartBadges();
+            updateProductAddButtons();
+        }
+
+        function updateQuoteCartBadges() {
+            const count = quoteCart.length;
+            const hBadge = document.getElementById('quoteCartCount');
+            const fBadge = document.getElementById('floatCartCount');
+            if (hBadge) hBadge.textContent = count;
+            if (fBadge) fBadge.textContent = count;
+        }
+
+        function updateProductAddButtons() {
+            document.querySelectorAll('.btn-quote-add').forEach(btn => {
+                const pid = btn.id.replace('btn-add-', '');
+                const isInCart = quoteCart.some(item => item.id === pid);
+                if (isInCart) {
+                    btn.classList.add('added');
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã Thêm';
+                } else {
+                    btn.classList.remove('added');
+                    btn.innerHTML = '<i class="fa-solid fa-cart-plus"></i> + Báo Giá';
+                }
+            });
+        }
+
+        function addToQuoteCart(pid) {
+            const data = productSpecs[pid];
+            if (!data) return;
+
+            const existingIdx = quoteCart.findIndex(item => item.id === pid);
+            if (existingIdx > -1) {
+                // Remove if clicked again
+                quoteCart.splice(existingIdx, 1);
+            } else {
+                quoteCart.push({
+                    id: pid,
+                    title: data.title,
+                    brand: data.brand,
+                    power: data.power,
+                    image: data.images[0]
+                });
+            }
+
+            try {
+                localStorage.setItem('thinhphat_quote_cart', JSON.stringify(quoteCart));
+            } catch(e) {}
+
+            updateQuoteCartBadges();
+            updateProductAddButtons();
+            renderQuoteCart();
+
+            // Auto-open drawer if item was added
+            if (existingIdx === -1) {
+                openQuoteCart();
+            }
+        }
+
+        function removeFromQuoteCart(pid) {
+            quoteCart = quoteCart.filter(item => item.id !== pid);
+            try {
+                localStorage.setItem('thinhphat_quote_cart', JSON.stringify(quoteCart));
+            } catch(e) {}
+            updateQuoteCartBadges();
+            updateProductAddButtons();
+            renderQuoteCart();
+        }
+
+        function openQuoteCart() {
+            renderQuoteCart();
+            document.getElementById('quoteCartOverlay').classList.add('open');
+            document.getElementById('quoteCartDrawer').classList.add('open');
+        }
+
+        function closeQuoteCart() {
+            document.getElementById('quoteCartOverlay').classList.remove('open');
+            document.getElementById('quoteCartDrawer').classList.remove('open');
+        }
+
+        function toggleQuoteCart() {
+            const drawer = document.getElementById('quoteCartDrawer');
+            if (drawer.classList.contains('open')) {
+                closeQuoteCart();
+            } else {
+                openQuoteCart();
+            }
+        }
+
+        function renderQuoteCart() {
+            const body = document.getElementById('quoteCartBody');
+            const footer = document.getElementById('quoteCartFooter');
+            if (!body) return;
+
+            if (quoteCart.length === 0) {
+                body.innerHTML = `
+                    <div class="quote-empty">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <h4>Giỏ Báo Giá Trống</h4>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">Bạn chưa thêm sản phẩm nào. Hãy bấm nút <strong>"+ Báo Giá"</strong> ở các dòng máy để tổng hợp danh sách hỏi giá nhanh chóng!</p>
+                    </div>
+                `;
+                if (footer) footer.style.display = 'none';
+                return;
+            }
+
+            if (footer) footer.style.display = 'block';
+
+            let html = '';
+            quoteCart.forEach(item => {
+                html += `
+                    <div class="quote-item">
+                        <img src="${item.image}" alt="${item.title}" class="quote-item-img">
+                        <div class="quote-item-info">
+                            <div class="quote-item-brand">${item.brand}</div>
+                            <div class="quote-item-title">${item.title}</div>
+                            <div class="quote-item-spec"><i class="fa-solid fa-bolt"></i> ${item.power}</div>
+                        </div>
+                        <button onclick="removeFromQuoteCart('${item.id}')" class="quote-item-del" title="Xóa khỏi giỏ">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            body.innerHTML = html;
+        }
+
+        function sendQuoteCartToZalo() {
+            if (quoteCart.length === 0) return;
+            const name = document.getElementById('quoteCustName').value.trim() || 'Khách hàng';
+            const phone = document.getElementById('quoteCustPhone').value.trim();
+            const company = document.getElementById('quoteCustCompany').value.trim();
+
+            let itemsList = quoteCart.map((it, idx) => `${idx + 1}. ${it.title} (${it.power})`).join('\n');
+            let msg = `Chào anh Xuân, tôi là ${name} ${company ? '(' + company + ')' : ''} ${phone ? '- SĐT: ' + phone : ''}.\nTôi muốn nhận báo giá các sản phẩm sau trên website Thịnh Phát:\n${itemsList}\nNhờ anh gửi báo giá và tình trạng sẵn hàng tại kho giúp tôi!`;
+
+            navigator.clipboard.writeText(msg).then(() => {
+                console.log('Cart text copied to clipboard');
+            }).catch(e => console.error(e));
+
+            closeQuoteCart();
+
+            const modal = document.getElementById('zaloModal');
+            document.getElementById('zaloProductName').textContent = `${quoteCart.length} sản phẩm`;
+            document.getElementById('zaloMessageText').textContent = msg;
+            document.getElementById('zaloRedirectBtn').href = 'https://zalo.me/0961095247';
+            modal.classList.add('show');
+        }
+
+        function sendQuoteCartToEmail() {
+            if (quoteCart.length === 0) return;
+            const name = document.getElementById('quoteCustName').value.trim();
+            const phone = document.getElementById('quoteCustPhone').value.trim();
+            const company = document.getElementById('quoteCustCompany').value.trim();
+
+            if (!name || !phone) {
+                alert('Vui lòng nhập Họ tên và Số điện thoại để chúng tôi liên hệ báo giá!');
+                return;
+            }
+
+            const itemsList = quoteCart.map((it, idx) => `${idx + 1}. ${it.title} (${it.brand} - ${it.power})`).join('\n');
+
+            fetch("https://formsubmit.co/ajax/thinhphataircompressor@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: `Yêu cầu báo giá giỏ hàng (${quoteCart.length} máy) từ: ${name}`,
+                    _captcha: "false",
+                    "Họ và tên": name,
+                    "Số điện thoại": phone,
+                    "Công ty / Xưởng": company || "Chưa cung cấp",
+                    "Danh sách máy yêu cầu": itemsList
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(`Cảm ơn anh/chị ${name}! Yêu cầu báo giá đã được gửi tới email công ty Thịnh Phát. Anh Xuân sẽ liên hệ lại qua SĐT ${phone} sớm nhất.`);
+                quoteCart = [];
+                try { localStorage.removeItem('thinhphat_quote_cart'); } catch(e) {}
+                updateQuoteCartBadges();
+                updateProductAddButtons();
+                closeQuoteCart();
+            })
+            .catch(err => {
+                console.error(err);
+                sendQuoteCartToZalo();
+            });
+        }
+
+        // ===== Product Comparison Engine =====
+        let compareList = [];
+
+        function toggleCompareItem(pid) {
+            const idx = compareList.indexOf(pid);
+            const btn = document.getElementById(`btn-cmp-${pid}`);
+
+            if (idx > -1) {
+                compareList.splice(idx, 1);
+                if (btn) btn.classList.remove('active');
+            } else {
+                if (compareList.length >= 3) {
+                    alert('Bạn chỉ có thể so sánh tối đa 3 máy nén khí cùng lúc!');
+                    return;
+                }
+                compareList.push(pid);
+                if (btn) btn.classList.add('active');
+            }
+            updateCompareStickyBar();
+        }
+
+        function updateCompareStickyBar() {
+            const bar = document.getElementById('compareStickyBar');
+            const chips = document.getElementById('compareChips');
+            const count = document.getElementById('compareCount');
+
+            if (!bar) return;
+            count.textContent = compareList.length;
+
+            if (compareList.length > 0) {
+                bar.classList.add('show');
+                let html = '';
+                compareList.forEach(pid => {
+                    const data = productSpecs[pid];
+                    if (data) {
+                        html += `
+                            <div class="compare-chip">
+                                <span>${data.brand}</span>
+                                <button onclick="toggleCompareItem('${pid}')" class="compare-chip-remove">&times;</button>
+                            </div>
+                        `;
+                    }
+                });
+                chips.innerHTML = html;
+            } else {
+                bar.classList.remove('show');
+                chips.innerHTML = '';
+            }
+        }
+
+        function clearAllCompare() {
+            compareList = [];
+            document.querySelectorAll('.btn-compare-item').forEach(b => b.classList.remove('active'));
+            updateCompareStickyBar();
+            closeCompareModal();
+        }
+
+        function openCompareModal() {
+            if (compareList.length < 2) {
+                alert('Vui lòng chọn ít nhất 2 máy nén khí để xem bảng đối chiếu so sánh!');
+                return;
+            }
+
+            const table = document.getElementById('compareTable');
+            const products = compareList.map(pid => ({ id: pid, ...productSpecs[pid] }));
+
+            let html = `
+                <thead>
+                    <tr>
+                        <th>Thông số \ Dòng máy</th>
+                        ${products.map(p => `
+                            <th class="compare-card-col">
+                                <img src="${p.images[0]}" alt="${p.title}">
+                                <h4>${p.title}</h4>
+                                <span class="badge" style="background:var(--secondary); color:white; padding:0.2rem 0.6rem; border-radius:50px; font-size:0.75rem;">${p.brand}</span>
+                            </th>
+                        `).join('')}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Công suất</td>
+                        ${products.map(p => `<td><strong style="color:var(--secondary);">${p.power}</strong></td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Lưu lượng khí</td>
+                        ${products.map(p => `<td>${p.flow}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Áp suất làm việc</td>
+                        ${products.map(p => `<td>${p.pressure}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Điện áp</td>
+                        ${products.map(p => `<td>${p.voltage}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Phân loại công nghệ</td>
+                        ${products.map(p => `<td>${p.category}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Máy sấy khí</td>
+                        ${products.map(p => `<td>${p.dryer}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Hệ thống làm mát</td>
+                        ${products.map(p => `<td>${p.cooling}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Tình trạng máy</td>
+                        ${products.map(p => `<td>${p.status}</td>`).join('')}
+                    </tr>
+                    <tr>
+                        <td>Hành động</td>
+                        ${products.map(p => `
+                            <td style="text-align:center;">
+                                <button onclick="closeCompareModal(); contactZalo('${p.title}')" class="btn btn-primary btn-sm" style="border-radius:50px; padding:0.4rem 0.9rem; font-size:0.8rem;">
+                                    <i class="fa-solid fa-comment-dots"></i> Hỏi Giá Zalo
+                                </button>
+                            </td>
+                        `).join('')}
+                    </tr>
+                </tbody>
+            `;
+
+            table.innerHTML = html;
+            document.getElementById('compareModal').classList.add('show');
+        }
+
+        function closeCompareModal() {
+            const modal = document.getElementById('compareModal');
+            if (modal) modal.classList.remove('show');
+        }
+
 
         // ===== Translation Dictionary =====
         const i18n = {
@@ -1756,7 +2430,13 @@
                 "filter-used": "Nội Địa Cũ",
                 "filter-new": "Mới 100%",
                 "filter-parts": "Phụ Tùng",
-                "zalo-modal-title": "Đang kết nối Zalo..."
+                "zalo-modal-title": "Đang kết nối Zalo...",
+                "nav-roi": "<i class=\"fa-solid fa-bolt\" style=\"color:var(--secondary);\"></i> Tính Tiết Kiệm Điện",
+                "nav-facebook": "<i class=\"fa-brands fa-facebook\" style=\"color:#1877f2;\"></i> Fanpage",
+                "quote-btn-text": "Giỏ Báo Giá",
+                "roi-badge": "<i class=\"fa-solid fa-bolt\"></i> CÔNG CỤ TÍNH KINH TẾ",
+                "roi-title": "Bảng Tính Tiết Kiệm Điện Năng (Inverter ROI)",
+                "roi-subtitle": "Máy nén khí biến tần (Inverter) nội địa Nhật giúp doanh nghiệp tiết kiệm 25% - 40% chi phí điện năng mỗi tháng. Hãy tính xem xưởng của bạn tiết kiệm được bao nhiêu triệu đồng mỗi năm!"
             },
             en: {
                 "nav-home": "Home",
@@ -1782,7 +2462,13 @@
                 "filter-used": "Japanese Used",
                 "filter-new": "100% New",
                 "filter-parts": "Spare Parts",
-                "zalo-modal-title": "Connecting to Zalo..."
+                "zalo-modal-title": "Connecting to Zalo...",
+                "nav-roi": "<i class=\"fa-solid fa-bolt\" style=\"color:var(--secondary);\"></i> ROI Calculator",
+                "nav-facebook": "<i class=\"fa-brands fa-facebook\" style=\"color:#1877f2;\"></i> Fanpage",
+                "quote-btn-text": "Quote Cart",
+                "roi-badge": "<i class=\"fa-solid fa-bolt\"></i> ECONOMIC CALCULATOR",
+                "roi-title": "Inverter Energy Savings & ROI Calculator",
+                "roi-subtitle": "Japanese domestic inverter air compressors save 25% - 40% electricity costs monthly. Calculate how much your factory saves each year!"
             },
             zh: {
                 "nav-home": "首页",
@@ -1808,7 +2494,13 @@
                 "filter-used": "日本二手",
                 "filter-new": "全新原装",
                 "filter-parts": "配件耗材",
-                "zalo-modal-title": "正在连接 Zalo..."
+                "zalo-modal-title": "正在连接 Zalo...",
+                "nav-roi": "<i class=\"fa-solid fa-bolt\" style=\"color:var(--secondary);\"></i> 节电效益测算",
+                "nav-facebook": "<i class=\"fa-brands fa-facebook\" style=\"color:#1877f2;\"></i> 官方脸书",
+                "quote-btn-text": "询价车",
+                "roi-badge": "<i class=\"fa-solid fa-bolt\"></i> 经济效益测算工具",
+                "roi-title": "变频空压机省电与投资回报测算",
+                "roi-subtitle": "日本原装变频空气压缩机每月可为企业节省 25% 至 40% 的电费支出。立即计算您的车间每年能省下多少电费！"
             }
         };
 
@@ -2384,6 +3076,10 @@
             // Language setup
             const savedLang = localStorage.getItem('lang') || 'vi';
             changeLanguage(savedLang);
+
+            // Initialize Quote Cart and ROI Calculator
+            initQuoteCart();
+            updateRoiCalc();
         });
 
         // ===== Smooth reveal on page load =====
